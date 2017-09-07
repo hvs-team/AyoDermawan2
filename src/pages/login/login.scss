@@ -1,0 +1,40 @@
+page-login {
+    .Logo {
+        height: 40vw; 
+        width: 40vw; 
+        display: block; 
+        margin: auto;
+        margin-top: 7vw;
+    }
+
+    .item ion-thumbnail {
+    width: 17vw;    
+    height: 20vw;
+    img {
+        width: 17vw;    
+        height: 20vw;
+        }
+    }
+    .LogoIcon {
+        height: 20vw; 
+        width: 17vw; 
+        display: block;
+        margin-top: 7vw;
+        margin-left: 5vw;
+    }
+    .line {
+        padding-left: 30vw;
+    }
+    .login_button {
+        height: 20vw !important;
+        width: 100%;
+        margin-top: 7vw;
+        margin-left: 2vw;
+    }
+
+    .ButtonWord {
+        color : #1e99d0;
+        font-weight: 4px;
+        font-size: 8vw;
+    }
+}

@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="AyoDermawan">
+    <ion-title>Sunting Profil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+	<ion-item>
+			<ion-label floating><p class="Head">Nama</p></ion-label>
+			<ion-input class="Head2" value="{{name}}" [(ngModel)]="namel" name="name" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"	required>
+			</ion-input>
+	</ion-item>
+	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+	Nama harus diisi
+	</p>
+
+	<ion-item>
+			<ion-label floating><p class="Head">Email</p></ion-label>
+			<ion-input class="Head2" value="{{email}}" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+				required>
+			</ion-input>
+	</ion-item>
+	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+	Nama harus diisi
+	</p>
+
+	<ion-item>
+			<ion-label floating><p class="Head">Nomor Telepon</p></ion-label>
+			<ion-input class="Head2" value="{{no_tel_patient}}" [(ngModel)]="no_tel_patient" name="telp" type="number" pattern="[0]{1}[0-9]{1,}" maxlength="13" required	required>
+			</ion-input>
+	</ion-item>
+	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+	Nomor Telepon harus diisi
+	</p>
+
+  <button class='Button' color="AyoDermawan" ion-button block (click)='simpanProfil()'><p class="ButtonWord">SIMPAN</p></button>
+
+</ion-content>

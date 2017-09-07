@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar no-border-top color="AyoDermawan" class="Toolbar">
+    <ion-segment  [(ngModel)]="notifikasi">
+      <ion-segment-button color="light" value="tertunda">
+        <div class="Header">Tertunda</div>
+      </ion-segment-button>
+      <ion-segment-button value="pemberitahuan">
+        <div class="Header">Pemberitahuan</div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="notifikasi">
+    <ion-list *ngSwitchCase="'tertunda'">
+      
+      <ion-item text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/pict/mock4.jpg"/>
+        </ion-thumbnail>
+        <ion-row>
+          <ion-col col-9>
+            <p class="Head">Pahatan X</p>
+            <p class="Konten">Unggah Bukti Bayar</p>
+          </ion-col>
+          <ion-col col-3>
+            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'pemberitahuan'">
+      
+      <ion-item text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/pict/mock1.jpg"/>
+        </ion-thumbnail>
+        <ion-row>
+          <ion-col col-9>
+            <p class="Head">Patung X</p>
+            <p class="Konten">Sudah terjual</p>
+          </ion-col>
+          <ion-col col-3>
+            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <p>{{name_donatur}}</p>
+  <p>{{email_donatur}}</p>
+  <p>{{telephone_donatur}}</p>
+  <p>{{address_donatur}}</p>
+</ion-content>

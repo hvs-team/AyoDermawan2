@@ -1,0 +1,39 @@
+page-lembaga-lelang {
+
+    .item ion-thumbnail {
+    img {
+        position: relative;
+        top: 2vw;
+        
+        width: 20vw;    
+        height: 20vw;
+        }
+    }
+
+    .Button {
+        position: relative;
+        top: 10%;
+
+        height: 8vw !important;
+        width: 110%;
+    }
+
+    .ButtonWord {
+        font-size : 4vw;
+        color: white;
+    }
+    .NamaBarang {
+        font-size: 4.5vw;
+        color : black
+    }
+    .Harga {
+        font-size: 5vw;
+        color: gray;   
+    }
+    .Countdown {
+        text-align: right;
+        font-size: 4.5vw;
+        color: #f53d3d;   
+    }
+    
+}

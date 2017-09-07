@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar color="AyoDermawan">
+    <ion-title text-center>AyoDermawan</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <img src="assets/pict/LembagaLogo.png" class="Pict"/>
+  
+  <ion-item padding-right text-wrap>
+    <p class="Nama">Nama Lembaga Sosial panjang panjang
+    </p>
+  </ion-item>
+
+  <ion-item padding-right>
+	  <ion-icon name="mail" item-left class="IconMail"></ion-icon>
+	  <p class="Head">Email</p>
+	  <p class="Konten">lembaga@gmail.com</p>
+	</ion-item>
+  <ion-item padding-right>
+	  <ion-icon name="call" item-left class="Icon"></ion-icon>
+	  <p class="Head">Nomor Telepon</p>
+	  <p class="Konten">0896 5701 1491</p>
+	</ion-item>
+  <ion-item padding-right>
+	  <ion-icon name="md-map" item-left class="Icon"></ion-icon>
+	  <p class="Head">Alamat</p>
+	  <p class="Konten">Ipb Dramaga Bogor</p>
+	</ion-item>
+
+  <!--KONDISI SATU-->
+  <div>
+  <ion-item padding-right no-lines>
+	  <ion-icon name="ios-card" item-left class="Icon"></ion-icon>
+	  <p class="Head">Mandiri
+    </p>
+	  <p class="Konten">1234564256262</p>
+	</ion-item>
+  </div>
+
+  <!--KONDISI DUA-->
+  <div>
+  <ion-item padding-right no-lines>
+	  <ion-icon name="ios-card" item-left class="IconSpesial"></ion-icon>
+	  <p class="Head">Mandiri
+    </p>
+	  <p class="Konten">1234564256262</p>
+	</ion-item>
+  </div>
+
+  <ion-item padding-left-right>
+    <button class='Button' color="AyoDermawan" ion-button block (click)='editProfil()'><p class="ButtonWordWhite">Sunting Profil</p></button>
+    <button class='Button' color="danger" ion-button outline block (click)='logOut()'><p class="ButtonWordBlack">Keluar Akun</p></button>
+  </ion-item>
+
+</ion-content>

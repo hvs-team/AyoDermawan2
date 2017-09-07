@@ -1,0 +1,598 @@
+
+<ion-header>
+
+  <ion-navbar color="AyoDermawan">
+    <ion-title></ion-title>
+    <ion-searchbar color="ayoDermawan" (ionInput)="getItems($event)"></ion-searchbar>
+    <!--<ion-list>
+      <ion-item *ngFor="let item of items">
+        {{ item }}
+      </ion-item>
+    </ion-list>-->
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Tarik untuk memperbaharui"
+      refreshingSpinner="circles"
+      refreshingText="Memperbaharui...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab bottom right >
+    <button color="AyoDermawan" ion-fab mini (click)="tambahLelang()"><ion-icon  name="md-add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-grid>
+
+    <ion-row *ngFor="let data of lelang">
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock2.jpeg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Lukisan Mona Lisa</p>
+            <p class="HargaItem">
+              Rp. 2.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock3.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Batik Tulis</p>
+            <p class="HargaItem">
+              Rp. 1.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 (tap)="OpenItem()">
+        
+        <ion-card>
+          <img src="assets/pict/mock1.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Patung</p>
+            <p class="HargaItem">
+              Rp. 5.000.000
+            </p>
+          </ion-card-content>
+        </ion-card>    
+        
+      </ion-col>
+      <ion-col col-6 (tap)="OpenItem()">
+        <ion-card>
+          <img src="assets/pict/mock4.jpg" class="Item"/>
+          <ion-card-content>
+            <p class="JudulItem">Pahatan</p>
+            <p class="HargaItem">
+              Rp. 2.700.000
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+</ion-content>

@@ -1,0 +1,74 @@
+page-donatur-notifikasi {
+
+    .Head {
+        font-size: 5vw;
+        color: #202020
+    }
+    .Konten {
+        font-size: 4.5vw;
+        color: gray;
+    }
+
+    .item ion-thumbnail {
+    img {
+        width: 20vw;    
+        height: 20vw;
+        }
+    }
+
+    .Button {
+        position: relative;
+        top: 10%;
+
+        height: 8vw !important;
+        width: 110%;
+    }
+
+    .ButtonWord {
+        font-size : 4vw;
+        color: white;
+    }
+
+
+    .Header {
+            color: white;
+            font-size: 18px;
+        }
+
+        .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+            border-color: white;
+            opacity: 1;
+        }
+
+		.Logo {
+				display: block;
+    		margin: auto;
+    		height: 25vw; 
+        width: 55vw; 
+
+				position: relative;
+    		top: 10vw; 
+		}
+		
+		.Konten1 {
+			margin-top: 10vw;
+		}
+
+		.Head2 {
+				margin-left: 10vw;
+        font-size: 5vw;
+				color: #9b9b9b; //warna abu ionic
+    }
+
+		.Head3 {
+				// margin-left: 9vw;
+        font-size: 4.5vw;
+				color: #9b9b9b; //warna abu ionic
+    }
+
+    .Warning {
+        font-size: 5vw;
+        color: #f53d3d;
+    }
+
+}

@@ -1,0 +1,72 @@
+page-donatur-sumbang {
+        .Header {
+            color: white;
+            font-size: 18px;
+        }
+
+        .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+            border-color: white;
+            opacity: 1;
+        }
+
+		.Logo {
+				display: block;
+    		margin: auto;
+    		height: 25vw; 
+        width: 55vw; 
+
+				position: relative;
+    		top: 10vw; 
+		}
+		
+		.Konten1 {
+			margin-top: 10vw;
+		}
+
+		.Head {
+        font-size: 6vw;
+		color: #202020; //warna abu ionic
+    }
+
+		.Head2 {
+				margin-left: 10vw;
+        font-size: 5vw;
+				color: #9b9b9b; //warna abu ionic
+    }
+
+        .Head21 {
+				margin-left: 10vw;
+        font-size: 5vw;
+				color: #202020;
+    }
+
+		.Head3 {
+				// margin-left: 9vw;
+        font-size: 4.5vw;
+				color: #9b9b9b; //warna abu ionic
+    }
+
+    .Warning {
+        font-size: 5vw;
+        color: #f53d3d;
+    }
+
+    .Button {
+        height: 10vw !important;
+        width: 100%;
+        margin-top: 3vw; 
+    }
+
+    .ButtonWord {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: white;
+    }
+
+		.ButtonWordBlue {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: #1e99d0;
+		}
+
+}

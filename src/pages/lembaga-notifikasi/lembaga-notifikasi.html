@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar no-border-top color="AyoDermawan" class="Toolbar">
+    <ion-segment  [(ngModel)]="notifikasi">
+      <ion-segment-button color="light" value="riwayat">
+        <div class="Header">Riwayat</div>
+      </ion-segment-button>
+      <ion-segment-button value="pemberitahuan">
+        <div class="Header">Pemberitahuan</div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="notifikasi">
+    <ion-list *ngSwitchCase="'riwayat'">
+      
+      <ion-item text-wrap (tap)="masuk2()">
+        <ion-thumbnail item-left>
+          <img src="assets/pict/mock2.jpeg"/>
+        </ion-thumbnail>
+        <ion-row>
+          <ion-col col-8>
+            <p class="Head">Lukisan X</p>
+            <p class="Konten">Nama Donatur</p>
+            <p class="Konten">Alamat Donatur</p>
+          </ion-col>
+          <ion-col col-4>
+            <div>
+            <button class="Button" ion-button small color="secondary"  block><p class="ButtonWord2">Diterima</p></button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item text-wrap  (tap)="masuk2()" >
+        <ion-thumbnail item-left>
+          <img src="assets/pict/mock3.jpg"/>
+        </ion-thumbnail>
+        <ion-row>
+          <ion-col col-8>
+            <p class="Head">Batik Tulis X</p>
+            <p class="Konten">Nama Donatur</p>
+            <p class="Konten">Alamat Donatur</p>
+          </ion-col>
+          <ion-col col-4>
+            <div>
+            <button class="Button" ion-button small color="danger"block><p class="ButtonWord2">Ditolak</p></button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'pemberitahuan'">
+      
+      <ion-item text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/pict/mock5.jpg"/>
+        </ion-thumbnail>
+        <ion-row>
+          <ion-col col-9>
+            <p class="Head">Beras Cianjur</p>
+            <p class="Konten">Nama Donatur</p>
+            <p class="Konten">Alamat Donatur</p>
+          </ion-col>
+          <ion-col col-3>
+            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/pict/mock4.jpg"/>
+        </ion-thumbnail>
+        <ion-row>
+          <ion-col col-9>
+            <p class="Head">Pahatan</p>
+            <p class="Konten">Nama Donatur</p>
+            <p class="Konten">Alamat Donatur</p>
+          </ion-col>
+          <ion-col col-3>
+            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>

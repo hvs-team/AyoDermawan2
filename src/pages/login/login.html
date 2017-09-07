@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="AyoDermawan">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img src="assets/pict/AyoDermawanLogo.png" class='Logo'>
+  
+  <ion-item no-lines></ion-item>
+
+  <ion-item no-lines>
+
+			<ion-thumbnail item-left (tap)="loginDonatur()">
+	      <img src="assets/pict/DonaturIcon.png" class='LogoIcon'>		    
+      </ion-thumbnail>
+		
+    	<button class='login_button' clear ion-button  block color="AyoDermawan" (click)="loginDonatur()">
+				<p class="ButtonWord">Donatur</p>
+    	</button>			    
+
+	</ion-item>
+  
+  <ion-item class='line'></ion-item>
+
+  <ion-item no-lines>
+
+			<ion-thumbnail item-left (tap)="loginLembaga()">
+	      <img src="assets/pict/LembagaIcon.png" class='LogoIcon'>		    
+      </ion-thumbnail>
+		
+    	<button class='login_button' clear ion-button  block color="AyoDermawan" (click)="loginLembaga()">
+				<p class="ButtonWord"  text-wrap>Lembaga Sosial</p>
+    	</button>			    
+
+	</ion-item>
+
+</ion-content>

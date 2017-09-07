@@ -1,0 +1,34 @@
+page-donatur-list {
+
+    .NamaLembaga {
+        font-size: 5vw;
+        color: #202020;
+    }
+    .KotaLembaga {
+        font-size: 4.5vw;
+        color: gray;
+    }
+
+    .item ion-thumbnail {
+    img {
+        position: relative;
+        top: 2vw;
+        
+        width: 15vw;    
+        height: 15vw;
+        }
+    }
+
+    .Button {
+        position: relative;
+        top: 10%;
+
+        height: 8vw !important;
+        width: 110%;
+    }
+
+    .ButtonWord {
+        font-size : 4vw;
+        color: white;
+    }
+}

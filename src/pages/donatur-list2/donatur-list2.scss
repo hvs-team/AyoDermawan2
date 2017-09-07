@@ -1,0 +1,56 @@
+page-donatur-list2 {
+    .Pict {
+        height: 30vw; 
+        width: 30vw; 
+        border-radius: 100%;
+        display: block; 
+        margin: auto;
+        margin-top: 7vw;
+    }
+
+    .Nama {
+        text-align: center;
+        color: #202020;
+
+        font-size: 6vw;
+        font-weight: 5px;
+    }
+    
+    .Head {
+        margin-left: 4vw;
+        font-size: 5vw;
+        font-weight: 6px;
+        color: #202020;
+    }
+    .HeadSpesial {
+        margin-left: 5vw;
+        text-align: center;
+        margin-top: 2vw;
+        font-size: 5vw;
+        font-weight: 6px;
+    }
+
+    .Konten {
+        margin-left: 4vw;
+        font-size: 5vw;
+        color: gray;
+    }
+
+    .Icon {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: #1e99d0;
+    }
+
+    .IconSpesial {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: rgba(1,1,1,0);
+    }
+
+    .IconMail {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: #1e99d0;
+    }
+}
