@@ -64,9 +64,11 @@ export class DonaturLoginPage {
           console.log(data);
           this.data.login(data,"donatur");//ke lokal
       });
+          setTimeout(() => {
+            loading.dismiss();
+            this.navCtrl.setRoot(TabsDonaturPage, 2);
+          }, 1000);
           
-          this.navCtrl.setRoot(TabsDonaturPage, 2);
-          loading.dismiss();
       })
       .catch( error => {
         console.error(error);      

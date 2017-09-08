@@ -26,7 +26,7 @@ export class TabsDonaturPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public data: Data) {
     
-    if(this.navParams.data!={}){
+    if(this.navParams.data==4 || this.navParams.data==0 ){
       console.log(navParams.data);
       this.tabs = navParams.data;
       console.log(this.tabs);

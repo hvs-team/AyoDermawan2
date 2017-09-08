@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, LoadingController, AlertController } from 'ionic-angular';
 
+import { TabsDonaturPage } from '../tabs-donatur/tabs-donatur';
 
 // @IonicPage()
 @Component({
@@ -21,7 +22,10 @@ export class DonaturBarangPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public app: App) {
+    public app: App,
+    public loadCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    ) {
 
       let dataBarang = JSON.parse(this.navParams.data);
 
@@ -46,7 +50,27 @@ export class DonaturBarangPage {
   }
 
   Finish() {
-    this.navCtrl.pop();
+    
+    let alert = this.alertCtrl.create({
+          title: 'Transaksi Berhasil',
+          buttons: ['OK']
+    });
+
+    let loading = this.loadCtrl.create({
+        content: 'memuat..'
+    });
+    loading.present();
+
+    //tempat firebase
+
+    //
+
+    setTimeout(() => {
+      loading.dismiss();
+      this.navCtrl.setRoot(TabsDonaturPage, 2);
+      alert.present();
+    }, 1000);
+    
   }
 
 }

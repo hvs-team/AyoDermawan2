@@ -27,6 +27,7 @@ export class DonaturLelangPage {
   submitted = false;
 
   name: string;
+  price:string;
   kategori: string;
   lembaga_barang: string;
   provinsi: string;
@@ -65,6 +66,7 @@ export class DonaturLelangPage {
 
       let input = JSON.stringify({
         name:this.name,
+        price:this.price,
         kategori:this.kategori,
         lembaga_barang:this.lembaga_barang,
         provinsi:this.provinsi,
