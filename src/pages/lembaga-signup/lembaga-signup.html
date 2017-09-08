@@ -66,15 +66,30 @@
 				<p class="Warning" color="danger" *ngIf="!telephone">Nomor telepon harus diisi</p>
 				<p class="Warning" color="danger" *ngIf="telephone">Nomor telepon salah</p>
 			</div>
+
       <ion-item>
-				<ion-label stacked ><p class="Head">Rekening</p></ion-label>
-				<ion-input class="Head2" [(ngModel)]="telephone" (ionChange)="checkTelephone()" name="telephone" type="number" #telpon="ngModel" pattern="[0]{1}[0-9]{1,}" maxlength="13" required>
+          <ion-label><p class="Head">Pilih Bank</p></ion-label>
+          <ion-select [(ngModel)]="bank" name="Pilihan Bank" (ionChange)="cekBank()" type="text" [ngModelOptions]="{standalone: true}" class="Head2">
+            <ion-option value="bank1">Bank 1</ion-option>
+            <ion-option value="bank2">Bank 2</ion-option>
+            <ion-option value="bank3">Bank 3</ion-option>
+            <ion-option value="bank4">Bank 4</ion-option>
+            <ion-option value="bank5">Bank 5</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <p class="Warning" ion-text [hidden]="bank || submitted == false" color="danger" padding-left>
+          Pilih satu
+        </p>
+
+      <ion-item>
+				<ion-label floating ><p class="Head">Nomor Rekening</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="norek" name="norek" type="number" #norekening="ngModel" required>
 				</ion-input>
 			</ion-item>
-			<div ion-text [hidden]="telpon.valid || submitted == false"  padding-left>
-				<p class="Warning" color="danger" *ngIf="!telephone">Nomor telepon harus diisi</p>
-				<p class="Warning" color="danger" *ngIf="telephone">Nomor telepon salah</p>
-			</div>
+			<p class="Warning" ion-text [hidden]="norekening.valid || submitted == false" color="danger" padding-left>
+				Nomor rekening harus diisi
+			</p>
 
 			<ion-item>
 				<ion-label floating ><p class="Head">Alamat</p></ion-label>
@@ -84,9 +99,10 @@
 				Alamat harus diisi
 			</p>
 		</ion-list>
-
+    
 		<ion-row responsive-sm>
 			<ion-col>
+        <button text-wrap class='ButtonClear' color="AyoDermawan" ion-button outline block (click)='UploadFoto()'><p class="ButtonWordBlue">Unggah Surat Izin Dinas Sosial Kab/Kota</p></button>
 				<button class="Button" color="AyoDermawan" ion-button block (click)="signUp(signupForm)" type="submit"><p class="ButtonWord">Daftar</p></button>
 			</ion-col>
 		</ion-row>
@@ -94,7 +110,7 @@
 	</form>
 
 
-  <p class="Head">Akta Pendirian</p>
+  
 
   1. Akta Pendirian
 No. Akta : 44

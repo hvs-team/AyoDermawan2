@@ -79,7 +79,7 @@ export class DonaturSignupPage {
         donatur.set({id:data.uid, name: this.name, email: this.email, telephone: this.telephone, address: this.address});
     
         console.log(data);  
-        this.navCtrl.setRoot(TabsDonaturPage);
+        this.navCtrl.setRoot(TabsDonaturPage,2);
       })
       .catch(error => {
         console.log(error);
@@ -92,8 +92,8 @@ export class DonaturSignupPage {
     else{
 
       let alert = this.alertCtrl.create({
-                title: 'Gagal Masuk',
-                subTitle: 'Email atau Password salah',      
+                title: 'Gagal Membuat Akun',
+                subTitle: 'Silahkan coba lagi',      
                 buttons: ['OK']
               });
               // this.vibration.vibrate(1000);

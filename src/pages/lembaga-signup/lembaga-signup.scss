@@ -17,12 +17,26 @@ page-lembaga-signup {
     .Button {
         height: 8vw !important;
         width: 100%;
-        margin-top: 3vw; 
+        margin-top: 8vw; 
     }
+
+    
 
     .ButtonWord {
         font-size: 6vw;
         font-weight: 2px;
         color: white;
+    }
+
+    .ButtonWordBlue {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: #1e99d0;
+	}
+
+    .ButtonClear {
+        height: 15vw !important;
+        width: 100%;
+        margin-top: 3vw; 
     }
 }
