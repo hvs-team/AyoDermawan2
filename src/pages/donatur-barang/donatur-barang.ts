@@ -26,6 +26,7 @@ export class DonaturBarangPage {
   description: string;
   
   id_donatur: string;
+  nama_lembaga:string;
 
   constructor(
     private fireauth: AngularFireAuth, 
@@ -38,7 +39,7 @@ export class DonaturBarangPage {
     public loadCtrl: LoadingController,
     public alertCtrl: AlertController,
     ) {
-
+      
       let dataBarang = JSON.parse(this.navParams.data);
 
 
@@ -49,8 +50,12 @@ export class DonaturBarangPage {
       this.kota = dataBarang.kota;
       this.kecamatan = dataBarang.kecamatan;
       this.address = dataBarang.address;
+      this.description = dataBarang.description;
 
-
+      //mendapatkan nama_lembaga dari id_lembaga
+    this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
+      this.nama_lembaga = lembaga.name;
+    });
   }
 
   ionViewWillEnter() {
@@ -65,6 +70,7 @@ export class DonaturBarangPage {
   }
 
   Cancel() {
+
     this.navCtrl.pop();
   }
 
@@ -81,10 +87,14 @@ export class DonaturBarangPage {
     loading.present();
 
     //tempat firebase
-    this.firedata.list('/barang/'+ this.id_donatur).push({ 
+
+    
+    this.firedata.list('/barang/').push({ 
+      id_donatur: this.id_donatur,
       nama: this.name,
       kategori: this.kategori,
       lembaga_barang: this.lembaga_barang,
+      nama_lembaga: this.nama_lembaga,
       provinsi: this.provinsi,
       kota: this.kota,
       kecamatan: this.kecamatan,

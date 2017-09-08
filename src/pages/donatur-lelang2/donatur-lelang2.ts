@@ -27,7 +27,8 @@ export class DonaturLelang2Page {
   address: string;
   description: string;
 
-  id_lembaga: string;
+  id_donatur: string;
+  nama_lembaga: string;
 
   constructor(
     private fireauth: AngularFireAuth, 
@@ -39,8 +40,8 @@ export class DonaturLelang2Page {
     public loadCtrl: LoadingController,
     public alertCtrl: AlertController,
     ) {
-      this.data.getDataLembaga().then((data) => {
-        this.id_lembaga = data.id;
+      this.data.getDataDonatur().then((data) => {
+        this.id_donatur = data.id;
      })
 
      let dataBarang = JSON.parse(this.navParams.data);
@@ -69,6 +70,7 @@ export class DonaturLelang2Page {
 
   Finish() {
 
+
     let alert = this.alertCtrl.create({
           title: 'Transaksi Berhasil',
           buttons: ['OK']
@@ -80,11 +82,19 @@ export class DonaturLelang2Page {
     loading.present();
 
     //tempat firebase
-    this.firedata.list('/lelang/'+ this.id_lembaga).push({ 
+
+    //mendapatkan nama_lembaga dari id_lembaga
+    this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
+      this.nama_lembaga = lembaga.name;
+    });
+
+    this.firedata.list('/lelang/').push({ 
+      id_donatur: this.id_donatur,
       nama: this.name,
       price: this.price,
       kategori: this.kategori,
       lembaga_barang: this.lembaga_barang,
+      nama_lembaga: this.nama_lembaga,
       provinsi: this.provinsi,
       kota: this.kota,
       kecamatan: this.kecamatan,

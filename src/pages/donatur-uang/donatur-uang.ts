@@ -20,6 +20,7 @@ export class DonaturUangPage {
   lembaga_uang: string;
   id_donatur: string;
   id_uang: string;
+  nama_lembaga: string;
 
   constructor(
     private fireauth: AngularFireAuth, 
@@ -39,10 +40,26 @@ export class DonaturUangPage {
 
     this.donation = dataDonasi.donation;
     this.lembaga_uang = dataDonasi.lembaga_uang;
-    this.id_uang = dataDonasi;
+    this.id_uang = dataDonasi.id_uang;
 
-    console.log(this.lembaga_uang);
+    //mendapatkan nama_lembaga dari id_lembaga
+    this.firedata.object('/lembaga/'+this.lembaga_uang).subscribe(lembaga => {
+      this.nama_lembaga = lembaga.name;
+    });
 
+    var id_uangnya = this.id_uang;
+
+    console.log(this.nama_lembaga);
+    var id_uangnya = this.id_uang;    
+    this.firedata.object('/uang/'+id_uangnya).update({ 
+      id_donatur: this.id_donatur,
+      donation: this.donation, 
+      lembaga_uang: this.lembaga_uang,
+      nama_lembaga: this.nama_lembaga,
+      notifikasi: 1, //tertunda
+      keterangan: "Unggah Bukti Bayar"    
+    });
+    
   }
 
   ionViewDidLoad() {
@@ -50,6 +67,8 @@ export class DonaturUangPage {
   }
 
   Cancel() {
+    var id_uangnya = this.id_uang;    
+    this.firedata.object('/uang/'+id_uangnya).remove();
     this.navCtrl.pop();
   }
 
@@ -65,10 +84,10 @@ export class DonaturUangPage {
     });
     loading.present();
 
+    var id_uangnya = this.id_uang;
     //tempat firebase
-    this.firedata.object('/uang/'+ this.id_donatur+'/'+this.id_uang).update({ 
-        donation: this.donation, 
-        lembaga_uang: this.lembaga_uang,
+    this.firedata.object('/uang/'+id_uangnya).update({ 
+        //nama_lembaga: this.nama_lembaga,
         notifikasi: 2, //pemberitahuan
         keterangan: "Pembayaran Diterima"  
       });

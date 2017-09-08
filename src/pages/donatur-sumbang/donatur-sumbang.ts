@@ -34,7 +34,8 @@ export class DonaturSumbangPage {
   submitted = false;
 
   id_donatur: string;
-
+  nama_lembaga: string
+  
   //uang
   donation: number;  
   lembaga_uang: string;
@@ -116,6 +117,9 @@ export class DonaturSumbangPage {
 
   OpenItemUang(form: NgForm) {
 
+    
+    
+
     this.submitted = true;
 
     let loading = this.loadCtrl.create({
@@ -124,25 +128,39 @@ export class DonaturSumbangPage {
 
     if(form.valid && this.validLembagaUang){
 
-      this.firedata.list('/uang/'+ this.id_donatur).push({ 
+      console.log(this.lembaga_uang);
+      //mendapatkan nama_lembaga dari id_lembaga
+      this.firedata.object('/lembaga/'+this.lembaga_uang).subscribe(lembaga => {
+        this.nama_lembaga = lembaga.name;
+      });
+      console.log(this.nama_lembaga);
+      this.firedata.list('/uang/').push({ 
+        id_donatur: this.id_donatur,
         donation: this.donation, 
         lembaga_uang: this.lembaga_uang,
+        //nama_lembaga: this.nama_lembaga,
         notifikasi: 1, //tertunda
         keterangan: "Unggah Bukti Bayar"
       })
       .then(data => {
-        console.log(data.path.pieces_[2]);
+        console.log(data);
         let input = JSON.stringify({
           donation:this.donation,
           lembaga_uang:this.lembaga_uang,
+          nama_lembaga:this.nama_lembaga,
           id_uang: data.path.pieces_[2]
           });
           this.app.getRootNav().push(DonaturUangPage, input);
           
       })
 
-      
-        
+      // let input = JSON.stringify({
+      //       donation:this.donation,
+      //       lembaga_uang:this.lembaga_uang,
+      //       nama_lembaga:this.nama_lembaga,
+      //       //id_uang: data.path.pieces_[2]
+      //   });
+      // this.app.getRootNav().push(DonaturUangPage, input);
       loading.present();
 
       // untuk push page dengan tabs dihide
@@ -166,6 +184,12 @@ export class DonaturSumbangPage {
 
 
   OpenItemBarang(form: NgForm) {
+
+    //mendapatkan nama_lembaga dari id_lembaga
+    this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
+      this.nama_lembaga = lembaga.name;
+    });
+    console.log(this.nama_lembaga);
 
     this.submitted = true;
 
