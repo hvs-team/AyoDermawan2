@@ -67,16 +67,6 @@ export class DonaturProfilPage {
    
   }
 
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-    this.ionViewWillEnter();
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
-  }
-
   editProfil() {
     // untuk push page dengan tabs dihide
     this.app.getRootNav().push(DonaturProfilEditPage);

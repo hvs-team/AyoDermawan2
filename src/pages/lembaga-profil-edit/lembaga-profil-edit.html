@@ -9,9 +9,11 @@
 
 <ion-content padding>
   
+	<form #profileForm="ngForm" novalidate>
+
 	<ion-item>
 			<ion-label floating><p class="Head">Nama</p></ion-label>
-			<ion-input class="Head2" value="{{name}}" [(ngModel)]="namel" name="name" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"	required>
+			<ion-input class="Head2" value="{{name_lembaga}}" [(ngModel)]="namel" name="name" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"	required>
 			</ion-input>
 	</ion-item>
 	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
@@ -20,7 +22,7 @@
 
 	<ion-item>
 			<ion-label floating><p class="Head">Email</p></ion-label>
-			<ion-input class="Head2" value="{{email}}" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+			<ion-input class="Head2" value="{{email_lembaga}}" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
 				required>
 			</ion-input>
 	</ion-item>
@@ -30,7 +32,7 @@
 
 	<ion-item>
 			<ion-label floating><p class="Head">Nomor Telepon</p></ion-label>
-			<ion-input class="Head2" value="{{no_tel_patient}}" [(ngModel)]="no_tel_patient" name="telp" type="number" pattern="[0]{1}[0-9]{1,}" maxlength="13" required	required>
+			<ion-input class="Head2" value="{{telephone_lembaga}}" [(ngModel)]="no_tel_patient" name="telp" type="number" pattern="[0]{1}[0-9]{1,}" maxlength="13" required	required>
 			</ion-input>
 	</ion-item>
 	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
@@ -39,4 +41,5 @@
 
   <button class='Button' color="AyoDermawan" ion-button block (click)='simpanProfil()'><p class="ButtonWord">SIMPAN</p></button>
 
+	</form>
 </ion-content>

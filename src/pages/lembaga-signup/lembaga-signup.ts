@@ -7,6 +7,9 @@ import { storage } from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
+import { Data } from '../../providers/data';
+import { Http } from '@angular/http';
+
 import { TabsLembagaPage } from '../tabs-lembaga/tabs-lembaga';
 
 // @IonicPage()
@@ -36,17 +39,19 @@ export class LembagaSignupPage {
   isValidFormTelephone= true;
   validPhoto= false;
 
+  lembaga: FirebaseObjectObservable<any[]>;
+
   constructor(
     //firebase
     private fireauth: AngularFireAuth,
     private firedata: AngularFireDatabase,
     // private vibration: Vibration,
     public navCtrl: NavController, 
-    // public http: Http, 
+    public http: Http, 
     public alertCtrl: AlertController, 
     public actionSheetCtrl: ActionSheetController,
     public navParams: NavParams, 
-    // public data: Data,
+    public data: Data,
     public loadCtrl: LoadingController,
     private camera: Camera,) {
   }
@@ -87,8 +92,8 @@ export class LembagaSignupPage {
       this.fireauth.auth.createUserWithEmailAndPassword(this.email, this.password)
       .then(data => {
         //this.donatur = this.firedata.object('donatur/${data.uid}');
-        this.firedata.object('/donatur/'+ data.uid)
-        .set({
+        const lembaga = this.firedata.object('/lembaga/'+ data.uid);
+        lembaga.set({
           id:data.uid, 
           name: this.name, 
           email: this.email, 
@@ -103,18 +108,19 @@ export class LembagaSignupPage {
         console.log(data);  
 
         //upload Pict
-        const picture = storage().ref('picture/profileDonatur/'+ this.id_lembaga);
+        const picture = storage().ref('picture/profileLembaga/'+ this.id_lembaga);
         picture.putString(this.image, 'data_url');
 
-        
+        lembaga.subscribe(datanya => {
+          console.log(datanya);  
+          this.data.login(datanya,"lembaga");//ke lokal
+        })
       
         
       })
       .catch(error => {
         console.log(error);
       });
-
-      
 
       this.navCtrl.setRoot(TabsLembagaPage, 1);
       loading.dismiss();

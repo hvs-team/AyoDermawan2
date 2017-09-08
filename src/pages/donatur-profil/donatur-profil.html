@@ -8,15 +8,6 @@
 
 
 <ion-content>
-
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Tarik untuk memperbaharui"
-      refreshingSpinner="circles"
-      refreshingText="Memperbaharui...">
-    </ion-refresher-content>
-  </ion-refresher>
   
     <img src="assets/pict/Profil.png" *ngIf="!image" class="Pict" (click)="updatePicture()"/>
     <img [src]="image" *ngIf="image" class="Pict" (click)="updatePicture()"/>

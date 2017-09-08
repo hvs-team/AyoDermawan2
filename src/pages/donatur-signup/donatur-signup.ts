@@ -7,6 +7,8 @@ import { TabsDonaturPage } from '../tabs-donatur/tabs-donatur';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
+import { Data } from '../../providers/data';
+import { Http } from '@angular/http';
 
 // @IonicPage()
 @Component({
@@ -40,7 +42,7 @@ export class DonaturSignupPage {
     // public http: Http, 
     public alertCtrl: AlertController, 
     public navParams: NavParams, 
-    // public data: Data,
+    public data: Data,
     public loadCtrl: LoadingController) {
   }
 
@@ -77,8 +79,10 @@ export class DonaturSignupPage {
         //this.donatur = this.firedata.object('donatur/${data.uid}');
         const donatur = this.firedata.object('/donatur/'+ data.uid);
         donatur.set({id:data.uid, name: this.name, email: this.email, telephone: this.telephone, address: this.address});
-    
-        console.log(data);  
+        donatur.subscribe(datanya => {
+          console.log(datanya);  
+          this.data.login(datanya,"donatur");//ke lokal
+        })
         this.navCtrl.setRoot(TabsDonaturPage,2);
       })
       .catch(error => {
