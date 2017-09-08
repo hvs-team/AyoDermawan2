@@ -19,6 +19,7 @@ export class DonaturUangPage {
   donation: string;  
   lembaga_uang: string;
   id_donatur: string;
+  id_uang: string;
 
   constructor(
     private fireauth: AngularFireAuth, 
@@ -38,6 +39,7 @@ export class DonaturUangPage {
 
     this.donation = dataDonasi.donation;
     this.lembaga_uang = dataDonasi.lembaga_uang;
+    this.id_uang = dataDonasi;
 
     console.log(this.lembaga_uang);
 
@@ -64,9 +66,11 @@ export class DonaturUangPage {
     loading.present();
 
     //tempat firebase
-    this.firedata.list('/uang/'+ this.id_donatur).push({ 
+    this.firedata.object('/uang/'+ this.id_donatur+'/'+this.id_uang).update({ 
         donation: this.donation, 
-        lembaga_uang: this.lembaga_uang  
+        lembaga_uang: this.lembaga_uang,
+        notifikasi: 2, //pemberitahuan
+        keterangan: "Pembayaran Diterima"  
       });
     //
 

@@ -89,7 +89,9 @@ export class DonaturBarangPage {
       kota: this.kota,
       kecamatan: this.kecamatan,
       address: this.address,
-      description: this.description
+      description: this.description,
+      notifikasi: 1, //tertunda
+      keterangan: "Menunggu Persetujuan"
     });
     //
 

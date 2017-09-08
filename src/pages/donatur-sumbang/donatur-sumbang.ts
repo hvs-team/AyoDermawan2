@@ -127,22 +127,25 @@ export class DonaturSumbangPage {
       this.firedata.list('/uang/'+ this.id_donatur).push({ 
         donation: this.donation, 
         lembaga_uang: this.lembaga_uang,
+        notifikasi: 1, //tertunda
         keterangan: "Unggah Bukti Bayar"
       })
       .then(data => {
-        console.log(data[2]);
-
+        console.log(data.path.pieces_[2]);
+        let input = JSON.stringify({
+          donation:this.donation,
+          lembaga_uang:this.lembaga_uang,
+          id_uang: data.path.pieces_[2]
+          });
+          this.app.getRootNav().push(DonaturUangPage, input);
+          
       })
 
-      let input = JSON.stringify({
-        donation:this.donation,
-        lembaga_uang:this.lembaga_uang,
-        });
+      
         
       loading.present();
 
       // untuk push page dengan tabs dihide
-      this.app.getRootNav().push(DonaturUangPage, input);
 
       loading.dismiss();
 

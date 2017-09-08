@@ -22,6 +22,9 @@ export class DonaturHomePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public app: App) {
+      this.firedata.list('/lelang/').subscribe(data=>{
+        console.log(data);
+      })
   }
 
   ionViewDidLoad() {
