@@ -12,6 +12,8 @@ import { LembagaRiwayatPage } from '../lembaga-riwayat/lembaga-riwayat';
 })
 export class LembagaNotifikasiPage {
 
+  swipe: number = 1;
+
   notifikasi: string = "pemberitahuan";
 
   constructor(
@@ -22,6 +24,45 @@ export class LembagaNotifikasiPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LembagaNotifikasiPage');
+  }
+
+  tapEvent1(e) {
+    //firebase
+    this.riwayat();
+
+    // console.log("11111111");
+    // console.log(this.swipe);
+    // console.log(this.notifikasi);
+    this.swipe = 2;
+  }
+
+  tapEvent2(e) {
+    //firebase
+    this.pemberitahuan();
+
+    // console.log("222222222");
+    // console.log(this.swipe);
+    // console.log(this.notifikasi);
+    this.swipe = 1;
+  }
+
+  swipeEvent(e) {
+    // console.log(this.swipe);
+    this.swipe++
+    if(this.swipe%2 == 0){
+      this.notifikasi = "riwayat";
+    }
+    else {
+      this.notifikasi = "pemberitahuan";
+    }
+  }
+
+  riwayat(){
+    console.log("riwayat");
+  }
+
+  pemberitahuan(){
+    console.log("pemberitahuan");    
   }
 
   masuk() {
