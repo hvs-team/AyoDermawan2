@@ -53,8 +53,6 @@ export class DonaturLoginPage {
 
     if(form.valid){
 
-      
-
       loading.present();
 
       //firebase
