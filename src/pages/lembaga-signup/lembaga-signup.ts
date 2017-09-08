@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'lembaga-signup.html',
 })
 export class LembagaSignupPage {
+  submitted= false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

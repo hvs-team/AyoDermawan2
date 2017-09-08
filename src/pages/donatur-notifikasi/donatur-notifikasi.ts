@@ -25,21 +25,21 @@ export class DonaturNotifikasiPage {
   }
 
   tapEvent1(e) {
-    console.log("11111111");
-    console.log(this.swipe);
-    console.log(this.notifikasi);
+    // console.log("11111111");
+    // console.log(this.swipe);
+    // console.log(this.notifikasi);
     this.swipe = 2;
   }
 
   tapEvent2(e) {
-    console.log("222222222");
-    console.log(this.swipe);
-    console.log(this.notifikasi);
+    // console.log("222222222");
+    // console.log(this.swipe);
+    // console.log(this.notifikasi);
     this.swipe = 1;
   }
 
   swipeEvent(e) {
-    console.log(this.swipe);
+    // console.log(this.swipe);
     this.swipe++
     if(this.swipe%2 == 0){
       this.notifikasi = "tertunda";

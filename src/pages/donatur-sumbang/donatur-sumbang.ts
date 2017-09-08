@@ -73,21 +73,21 @@ export class DonaturSumbangPage {
     
   }
   tapEvent1(e) {
-    console.log("11111111");
-    console.log(this.swipe);
-    console.log(this.sumbang);
+    // console.log("11111111");
+    // console.log(this.swipe);
+    // console.log(this.sumbang);
     this.swipe = 2;
   }
 
   tapEvent2(e) {
-    console.log("222222222");
-    console.log(this.swipe);
-    console.log(this.sumbang);
+    // console.log("222222222");
+    // console.log(this.swipe);
+    // console.log(this.sumbang);
     this.swipe = 1;
   }
 
   swipeEvent(e) {
-    console.log(this.swipe);
+    // console.log(this.swipe);
     this.swipe++
     if(this.swipe%2 == 0){
       this.sumbang = "uang";
