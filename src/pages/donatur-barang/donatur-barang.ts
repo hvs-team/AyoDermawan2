@@ -24,6 +24,8 @@ export class DonaturBarangPage {
   kecamatan: string;
   address: string;
   description: string;
+  
+  id_donatur: string;
 
   constructor(
     private fireauth: AngularFireAuth, 
@@ -49,6 +51,13 @@ export class DonaturBarangPage {
       this.address = dataBarang.address;
 
 
+  }
+
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    this.data.getDataDonatur().then((data) => {
+      this.id_donatur = data.id;
+    })
   }
 
   ionViewDidLoad() {
