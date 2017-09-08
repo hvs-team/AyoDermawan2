@@ -1,5 +1,18 @@
 page-donatur-notifikasi {
 
+    .item-md {
+        padding-left: 0px;
+        padding-right:0px;
+    }
+
+    .card-md{
+        margin:0px;
+        border-radius:0px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0)
+    }
+
     .Head {
         font-size: 5vw;
         color: #202020
@@ -23,6 +36,11 @@ page-donatur-notifikasi {
         height: 8vw !important;
         width: 110%;
     }
+    .ButtonIllution {
+        width: 100%;
+        height: 100vh;
+        color: rgba(0,0,0,0);
+    } 
 
     .ButtonWord {
         font-size : 4vw;

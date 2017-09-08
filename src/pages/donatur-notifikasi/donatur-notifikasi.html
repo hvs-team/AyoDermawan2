@@ -1,20 +1,23 @@
 <ion-header>
   <ion-toolbar no-border-top color="AyoDermawan" class="Toolbar">
     <ion-segment  [(ngModel)]="notifikasi">
-      <ion-segment-button color="light" value="tertunda">
+      <ion-segment-button color="light" value="tertunda" (tap)="tapEvent1($event)">
         <div class="Header">Tertunda</div>
       </ion-segment-button>
-      <ion-segment-button value="pemberitahuan">
+      <ion-segment-button value="pemberitahuan" (tap)="tapEvent2($event)">
         <div class="Header">Pemberitahuan</div>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content padding>
+<div (swipe)="swipeEvent($event)">
+
   <div [ngSwitch]="notifikasi">
     <ion-list *ngSwitchCase="'tertunda'">
-      
+    
       <ion-item text-wrap>
         <ion-thumbnail item-left>
           <img src="assets/pict/mock4.jpg"/>
@@ -28,7 +31,11 @@
             <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
           </ion-col>
         </ion-row>
-      </ion-item>
+      </ion-item>      
+
+      
+      <button class="ButtonIllution" clear ion-button block></button>
+      
 
     </ion-list>
 
@@ -49,11 +56,10 @@
         </ion-row>
       </ion-item>
 
+      <button class="ButtonIllution" clear ion-button block></button>
+
     </ion-list>
   </div>
 
-  <p>{{name_donatur}}</p>
-  <p>{{email_donatur}}</p>
-  <p>{{telephone_donatur}}</p>
-  <p>{{address_donatur}}</p>
+</div>  
 </ion-content>

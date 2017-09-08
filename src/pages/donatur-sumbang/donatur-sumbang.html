@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar no-border-top color="AyoDermawan" class="Toolbar">
     <ion-segment  [(ngModel)]="sumbang">
-      <ion-segment-button color="light" value="uang">
+      <ion-segment-button color="light" value="uang" (tap)="tapEvent1($event)">
         <div class="Header">Uang</div>
       </ion-segment-button>
-      <ion-segment-button value="barang">
+      <ion-segment-button value="barang" (tap)="tapEvent2($event)">
         <div class="Header">Barang</div>
       </ion-segment-button>
     </ion-segment>
@@ -12,6 +12,8 @@
 </ion-header>
 
 <ion-content padding>
+<div (swipe)="swipeEvent($event)">
+
   <div [ngSwitch]="sumbang">
     <ion-list *ngSwitchCase="'uang'">
       
@@ -184,4 +186,6 @@
 
     </ion-list>
   </div>
+
+</div>
 </ion-content>

@@ -19,6 +19,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 
 export class DonaturSumbangPage {
+  swipe: number = 1;
+  sumbang: string = "barang";
 
   validLembagaUang = false;
 
@@ -30,7 +32,6 @@ export class DonaturSumbangPage {
 
   choose_lembaga = false;
   submitted = false;
-  sumbang: string = "barang";
 
   id_donatur: string;
 
@@ -70,6 +71,30 @@ export class DonaturSumbangPage {
   ionViewDidLoad() {
     //ini ni ngambil value yang di return dari data.ts
     
+  }
+  tapEvent1(e) {
+    console.log("11111111");
+    console.log(this.swipe);
+    console.log(this.sumbang);
+    this.swipe = 2;
+  }
+
+  tapEvent2(e) {
+    console.log("222222222");
+    console.log(this.swipe);
+    console.log(this.sumbang);
+    this.swipe = 1;
+  }
+
+  swipeEvent(e) {
+    console.log(this.swipe);
+    this.swipe++
+    if(this.swipe%2 == 0){
+      this.sumbang = "uang";
+    }
+    else {
+      this.sumbang = "barang";
+    }
   }
 
 
