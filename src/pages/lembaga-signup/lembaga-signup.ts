@@ -30,6 +30,7 @@ export class LembagaSignupPage {
   telephone:number;
   telephoneMessage:string;
   address:string;
+  bank:string;
 
   validBank = false;
   isValidFormTelephone= true;
@@ -87,7 +88,15 @@ export class LembagaSignupPage {
       .then(data => {
         //this.donatur = this.firedata.object('donatur/${data.uid}');
         this.firedata.object('/donatur/'+ data.uid)
-        .set({id:data.uid, name: this.name, email: this.email, telephone: this.telephone, address: this.address});
+        .set({
+          id:data.uid, 
+          name: this.name, 
+          email: this.email, 
+          telephone: this.telephone, 
+          address: this.address,
+          bank: this.bank,
+          norek: this.norek
+        });
     
         this.id_lembaga = data.uid;
 
