@@ -124,15 +124,20 @@ export class DonaturSumbangPage {
 
     if(form.valid && this.validLembagaUang){
 
+      this.firedata.list('/uang/'+ this.id_donatur).push({ 
+        donation: this.donation, 
+        lembaga_uang: this.lembaga_uang,
+        keterangan: "Unggah Bukti Bayar"
+      })
+      .then(data => {
+        console.log(data[2]);
+
+      })
+
       let input = JSON.stringify({
         donation:this.donation,
         lembaga_uang:this.lembaga_uang,
         });
-
-      this.firedata.list('/uang/'+ this.id_donatur).push({ 
-        donation: this.donation, 
-        lembaga_uang: this.lembaga_uang 
-      });
         
       loading.present();
 
@@ -178,16 +183,16 @@ export class DonaturSumbangPage {
         description:this.description,
         });
 
-      this.firedata.list('/barang/'+ this.id_donatur).push({ 
-        nama: this.name,
-        kategori: this.kategori,
-        lembaga_barang: this.lembaga_barang,
-        provinsi: this.provinsi,
-        kota: this.kota,
-        kecamatan: this.kecamatan,
-        address: this.address,
-        description: this.description
-      });
+      // this.firedata.list('/barang/'+ this.id_donatur).push({ 
+      //   nama: this.name,
+      //   kategori: this.kategori,
+      //   lembaga_barang: this.lembaga_barang,
+      //   provinsi: this.provinsi,
+      //   kota: this.kota,
+      //   kecamatan: this.kecamatan,
+      //   address: this.address,
+      //   description: this.description
+      // });
 
       loading.present();
 

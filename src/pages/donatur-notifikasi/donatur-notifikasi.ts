@@ -25,6 +25,9 @@ export class DonaturNotifikasiPage {
   }
 
   tapEvent1(e) {
+    //firebase
+    this.tertunda();
+
     // console.log("11111111");
     // console.log(this.swipe);
     // console.log(this.notifikasi);
@@ -32,6 +35,9 @@ export class DonaturNotifikasiPage {
   }
 
   tapEvent2(e) {
+    //firebase
+    this.pemberitahuan();
+
     // console.log("222222222");
     // console.log(this.swipe);
     // console.log(this.notifikasi);
@@ -49,6 +55,13 @@ export class DonaturNotifikasiPage {
     }
   }
 
+  tertunda(){
+    console.log("tertunda");
+  }
+
+  pemberitahuan(){
+    console.log("pemberitahuan");    
+  }
   
 
 }

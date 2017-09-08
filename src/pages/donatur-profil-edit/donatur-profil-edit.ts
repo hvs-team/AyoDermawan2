@@ -71,10 +71,10 @@ export class DonaturProfilEditPage {
     });
     
     
-        this.firedata.object('/donatur/'+user.uid).subscribe(data =>{
-          console.log(data);
-          this.data.login(data,"donatur");//ke lokal
-      });
+    this.firedata.object('/donatur/'+user.uid).subscribe(data =>{
+      console.log(data);
+      this.data.login(data,"donatur");//ke lokal
+    });
 
     setTimeout(() => {
       loading.dismiss();
