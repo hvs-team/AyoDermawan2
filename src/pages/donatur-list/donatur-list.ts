@@ -13,6 +13,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class DonaturListPage {
 
+  lembaga: any;
+
   constructor(
     private fireauth: AngularFireAuth, 
     private firedata: AngularFireDatabase, 
@@ -21,6 +23,7 @@ export class DonaturListPage {
     public app : App) {
       this.firedata.list('lembaga').subscribe(data => {
         console.log(data);        
+        this.lembaga=data;//ngambil data yang dikasih firebase
       });
   }
 
