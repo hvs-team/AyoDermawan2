@@ -99,10 +99,17 @@
 				Alamat harus diisi
 			</p>
 		</ion-list>
-    
+
 		<ion-row responsive-sm>
 			<ion-col>
-        <button text-wrap class='ButtonClear' color="AyoDermawan" ion-button outline block (click)='UploadFoto()'><p class="ButtonWordBlue">Unggah Surat Izin Dinas Sosial Kab/Kota</p></button>
+        <button text-wrap class='ButtonClear' color="AyoDermawan" ion-button outline block (click)='updatePicture()'><p class="ButtonWordBlue">Unggah Surat Izin Dinas Sosial Kab/Kota</p></button>
+
+        <p class="Warning" ion-text [hidden]="image || submitted == false" color="danger" padding-left>
+          Unggah foto scan Surat Izin Dinas Sosial kab/kota
+        </p>
+        
+        <img [src]="image" *ngIf="image" class="Pict" (click)="updatePicture()"/>
+
 				<button class="Button" color="AyoDermawan" ion-button block (click)="signUp(signupForm)" type="submit"><p class="ButtonWord">Daftar</p></button>
 			</ion-col>
 		</ion-row>
