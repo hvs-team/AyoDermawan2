@@ -38,6 +38,7 @@ export class DonaturUangPage {
 
     let dataDonasi = JSON.parse(this.navParams.data);
 
+    this.id_donatur = dataDonasi.id_donatur;
     this.donation = dataDonasi.donation;
     this.lembaga_uang = dataDonasi.lembaga_uang;
     this.id_uang = dataDonasi.id_uang;
@@ -52,12 +53,12 @@ export class DonaturUangPage {
     console.log(this.nama_lembaga);
     var id_uangnya = this.id_uang;    
     this.firedata.object('/uang/'+id_uangnya).update({ 
-      id_donatur: this.id_donatur,
-      donation: this.donation, 
-      lembaga_uang: this.lembaga_uang,
+      // id_donatur: this.id_donatur,
+      // donation: this.donation, 
+      // lembaga_uang: this.lembaga_uang,
       nama_lembaga: this.nama_lembaga,
-      notifikasi: 1, //tertunda
-      keterangan: "Unggah Bukti Bayar"    
+      // notifikasi: 1, //tertunda
+      // keterangan: "Unggah Bukti Bayar"    
     });
     
   }

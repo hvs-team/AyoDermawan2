@@ -143,12 +143,13 @@ export class DonaturSumbangPage {
         keterangan: "Unggah Bukti Bayar"
       })
       .then(data => {
-        console.log(data);
+        //console.log(data.path);
         let input = JSON.stringify({
+          id_donatur: this.id_donatur,
           donation:this.donation,
           lembaga_uang:this.lembaga_uang,
           nama_lembaga:this.nama_lembaga,
-          id_uang: data.path.pieces_[2]
+          id_uang: data.path.pieces_[1]
           });
           this.app.getRootNav().push(DonaturUangPage, input);
           
