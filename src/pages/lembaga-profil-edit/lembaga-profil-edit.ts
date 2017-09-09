@@ -43,6 +43,7 @@ export class LembagaProfilEditPage {
   ionViewWillEnter() {
     //ini ni ngambil value yang di return dari data.ts
     this.data.getDataLembaga().then((data) => {
+      this.id_lembaga = data.id_lembaga;
       this.name_lembaga = data.name;
       this.email_lembaga = data.email;
       this.telephone_lembaga = data.telephone;
