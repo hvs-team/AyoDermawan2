@@ -59,14 +59,25 @@ export class LembagaLoginPage {
       this.fireauth.auth.signInWithEmailAndPassword(this.email, this.password)
       .then( user => {
         this.firedata.object('/lembaga/'+user.uid).subscribe(data =>{
-          console.log(data);
-          this.data.login(data,"lembaga");//ke lokal
-      });
-          setTimeout(() => {
+          if(data.name){
+            console.log(data);
+            this.data.login(data,"lembaga");//ke lokal
+
+            setTimeout(() => {
+              loading.dismiss();
+              this.navCtrl.setRoot(TabsLembagaPage, 1);
+            }, 1000);
+          }
+          else{
+            let alert = this.alertCtrl.create({
+              title: 'Gagal Masuk',
+              subTitle: 'Silahkan coba lagi. Cek kembali Email dan Password',      
+              buttons: ['OK']
+            });
+            alert.present();
             loading.dismiss();
-            this.navCtrl.setRoot(TabsLembagaPage, 1);
-          }, 1000);
-          
+          }
+      });      
       })
       .catch( error => {
         console.error(error);      

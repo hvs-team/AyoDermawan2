@@ -25,7 +25,6 @@ export class DonaturLoginPage {
   lihat = true;
   email: string;
   password: string;
-  
 
   constructor(
     private fireauth: AngularFireAuth,
@@ -44,7 +43,7 @@ export class DonaturLoginPage {
   }
 
   masuk(form: NgForm) {
-
+    
     this.submitted = true;
 
     let loading = this.loadCtrl.create({
@@ -52,23 +51,35 @@ export class DonaturLoginPage {
     });
 
     if(form.valid){
-
+      
       loading.present();
 
       //firebase
       this.fireauth.auth.signInWithEmailAndPassword(this.email, this.password)
       .then( user => {
         this.firedata.object('/donatur/'+user.uid).subscribe(data =>{
-          console.log(data);
-          this.data.login(data,"donatur");//ke lokal
-      });
-          setTimeout(() => {
-            loading.dismiss();
-            this.navCtrl.setRoot(TabsDonaturPage, 2);
-          }, 1000);
           
-      })
-      .catch( error => {
+          if(data.name){
+            console.log(data);            
+            this.data.login(data,"donatur");//ke lokal
+
+            setTimeout(() => {
+              loading.dismiss();
+              this.navCtrl.setRoot(TabsDonaturPage, 2);
+            }, 1000);
+          }
+          else{
+            let alert = this.alertCtrl.create({
+              title: 'Gagal Masuk',
+              subTitle: 'Silahkan coba lagi. Cek kembali Email dan Password',      
+              buttons: ['OK']
+            });
+            alert.present();
+            loading.dismiss();
+          }
+        });
+      
+      }).catch( error => {
         console.error(error);      
         let alert = this.alertCtrl.create({
           title: 'Gagal Masuk',

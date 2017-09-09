@@ -78,7 +78,7 @@ export class DonaturSignupPage {
       .then(data => {
         //this.donatur = this.firedata.object('donatur/${data.uid}');
         const donatur = this.firedata.object('/donatur/'+ data.uid);
-        donatur.set({id:data.uid, name: this.name, email: this.email, telephone: this.telephone, address: this.address});
+        donatur.set({id:data.uid, name: this.name, email: this.email, telephone: this.telephone, address: this.address });
         donatur.subscribe(datanya => {
           console.log(datanya);  
           this.data.login(datanya,"donatur");//ke lokal
