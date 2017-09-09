@@ -48,6 +48,8 @@ export class DonaturProfilPage {
     public alertCtrl: AlertController,
     public app: App) {
 
+      this.ambilGambar();
+
         this.data.getDataDonatur().then((data) => {
         this.name_donatur = data.name;
         this.id_donatur = data.id;
@@ -170,6 +172,8 @@ export class DonaturProfilPage {
         image: 'picture/profileDonatur/'+ this.id_donatur + '.jpeg'
       })
 
+
+
     }
     catch (e) {
       console.error(e);
@@ -192,9 +196,21 @@ export class DonaturProfilPage {
       const picture = storage().ref('picture/profileDonatur/'+ this.id_donatur);
       picture.putString(this.image, 'data_url');
       
-            
+      
+      this.ambilGambar();
       }, (err) => {
     });
+  }
+
+  ambilGambar() {
+    console.log("gambarnya mnaya?");
+    this.firedata.object('/donatur/'+this.id_donatur).subscribe(data =>{
+      this.image=data.image;
+      console.log(this.image);
+    });
+
+    
+
   }
 
   
