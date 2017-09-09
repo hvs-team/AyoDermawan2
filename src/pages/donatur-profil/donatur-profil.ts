@@ -166,7 +166,9 @@ export class DonaturProfilPage {
 
       const picture = storage().ref('picture/profileDonatur/'+ this.id_donatur);
       picture.putString(this.image, 'data_url');
-      
+      this.firedata.object('/donatur/'+ this.id_donatur).update({
+        image: 'picture/profileDonatur/'+ this.id_donatur + '.jpeg'
+      })
 
     }
     catch (e) {

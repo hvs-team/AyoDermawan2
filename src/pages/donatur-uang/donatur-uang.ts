@@ -109,8 +109,11 @@ export class DonaturUangPage {
             }).then(data => {
 
               if(this.image1){
-                const picture = storage().ref('picture/barang/'+ id_uangnya + '--photo1');
+                const picture = storage().ref('picture/uang/'+ id_uangnya + '--photo1');
                 picture.putString(this.image1, 'data_url');
+                this.firedata.object('/uang/'+ id_uangnya).update({
+                  image1: 'picture/uang/'+ id_uangnya + '--photo1.jpeg'
+                })
               }              
             })
           //

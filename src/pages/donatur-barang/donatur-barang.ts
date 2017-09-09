@@ -119,14 +119,23 @@ export class DonaturBarangPage {
       if(this.image1){
         const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo1');
         picture.putString(this.image1, 'data_url');
+        this.firedata.object('/barang/'+ data.path.pieces_[1]).update({
+          image1: 'picture/barang/'+ data.path.pieces_[1] + '--photo1.jpeg'
+        })
       }
       if(this.image2){
         const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo2');
         picture.putString(this.image2, 'data_url');
+        this.firedata.object('/barang/'+ data.path.pieces_[1]).update({
+          image2: 'picture/barang/'+ data.path.pieces_[1] + '--photo2.jpeg'
+        })
       }
       if(this.image3){
         const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo3');
         picture.putString(this.image3, 'data_url');
+        this.firedata.object('/barang/'+ data.path.pieces_[1]).update({
+          image3: 'picture/barang/'+ data.path.pieces_[1] + '--photo3.jpeg'
+        })
       }
 
       
