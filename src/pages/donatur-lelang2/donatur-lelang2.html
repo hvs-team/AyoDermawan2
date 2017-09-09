@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="AyoDermawan">
-    <ion-title>Donasi Barang</ion-title>
+    <ion-title>Donasi Lelang</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,15 +12,18 @@
   <ion-slides pager>
 
   <ion-slide>
-    <img class="Gambar" [src]="image" *ngIf="image">
+    <img class="Gambar" [src]="image1" *ngIf="image1">
+    <img *ngIf="!image1" src="assets/pict/BarangBiru.png"/>
   </ion-slide>
 
   <ion-slide>
-    <img src="assets/pict/BarangBiru.png"/>
+    <img class="Gambar" [src]="image2" *ngIf="image2">
+    <img *ngIf="!image2" src="assets/pict/BarangBiru.png"/>
   </ion-slide>
 
   <ion-slide>
-    <img src="assets/pict/BarangBiru.png"/>
+    <img class="Gambar" [src]="image3" *ngIf="image3">
+    <img *ngIf="!image3" src="assets/pict/BarangBiru.png"/>
   </ion-slide>
 
 </ion-slides>

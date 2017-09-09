@@ -177,10 +177,26 @@
           Deskripsi barang harus diisi
         </p>
 
-        <ion-item no-lines>
-          <button class='Button' color="AyoDermawan" ion-button outline block (click)='UploadFoto()'><p class="ButtonWordBlue">Unggah Foto</p></button>
+        <div>
+          <button [hidden]="image1" class='Button' color="AyoDermawan" ion-button outline block (click)='updatePicture1()'><p class="ButtonWordBlue">Unggah Foto</p></button>
+          
+          <p class="Warning" ion-text [hidden]="image1 || submitted == false" color="danger" padding-left>
+          Unggah foto barang yang akan di sumbangkan
+          </p>
+          
+            <img [src]="image1" *ngIf="image1" class="Pict" (click)="updatePicture1()"/>
+          
+          <button [hidden]="gambar1 || image2" class='Button' color="AyoDermawan" ion-button outline block (click)='updatePicture2()'><p class="ButtonWordBlue">Unggah Foto Lagi</p></button>
+          
+            <img [src]="image2" *ngIf="image2" class="Pict" (click)="updatePicture2()"/>
+
+          <button [hidden]="gambar2 || image3" class='Button' color="AyoDermawan" ion-button outline block (click)='updatePicture3()'><p class="ButtonWordBlue">Unggah Foto Lagi</p></button>
+
+            <img [src]="image3" *ngIf="image3" class="Pict" (click)="updatePicture3()"/>
+        
           <button class='Button' color="AyoDermawan" ion-button block (click)='OpenItemBarang(barangForm)'><p class="ButtonWord">Lanjut</p></button>
-        </ion-item>
+        
+        </div>
 
       </form>
 

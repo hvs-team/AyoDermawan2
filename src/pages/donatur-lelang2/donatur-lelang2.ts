@@ -28,7 +28,10 @@ export class DonaturLelang2Page {
   kecamatan: string;
   address: string;
   description: string;
-  image:string;
+  image1:string;
+  image2:string;
+  image3:string;
+
 
   id_donatur: string;
   nama_lembaga: string;
@@ -59,9 +62,10 @@ export class DonaturLelang2Page {
       this.kecamatan = dataBarang.kecamatan;
       this.address = dataBarang.address;
       this.description = dataBarang.description;
-      this.image = dataBarang.image;
+      this.image1 = dataBarang.image1;
+      this.image2 = dataBarang.image2;
+      this.image3 = dataBarang.image3;
       
-
   }
 
   ionViewDidLoad() {
@@ -104,13 +108,24 @@ export class DonaturLelang2Page {
       kecamatan: this.kecamatan,
       address: this.address,
       description: this.description,
-      notif: 1, //tertunda
+      notifikasi: 1, //tertunda
       keterangan: "Menunggu Persetujuan"
     }).then(data => {
 
-      const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1]);
-        picture.putString(this.image, 'data_url');
+      if(this.image1){
+        const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1] + '--photo1');
+        picture.putString(this.image1, 'data_url');
+      }
+      if(this.image2){
+        const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1] + '--photo2');
+        picture.putString(this.image2, 'data_url');
+      }
+      if(this.image3){
+        const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1] + '--photo3');
+        picture.putString(this.image3, 'data_url');
+      }
 
+      
     })
     //
 

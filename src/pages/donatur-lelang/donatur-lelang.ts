@@ -21,7 +21,9 @@ import { DonaturLelang2Page } from '../donatur-lelang2/donatur-lelang2';
 })
 export class DonaturLelangPage {
 
-  image: string;
+  image1: string;
+  image2: string;
+  image3: string;
   id_donatur:string;
 
   validLembagaUang = false;
@@ -35,6 +37,8 @@ export class DonaturLelangPage {
   validPhoto= false;
 
   submitted = false;
+  gambar1= true;
+  gambar2= true;
 
   name: string;
   price:string;
@@ -97,7 +101,9 @@ export class DonaturLelangPage {
         kecamatan:this.kecamatan,
         address:this.address,
         description:this.description,
-        image:this.image
+        image1:this.image1,
+        image2:this.image2,
+        image3:this.image3,
       });
       
       
@@ -150,7 +156,7 @@ export class DonaturLelangPage {
  }
 
 
- updatePicture() {
+ updatePicture1() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Pilihan',
       buttons: [
@@ -158,14 +164,14 @@ export class DonaturLelangPage {
           text: 'Ambil Gambar Baru',
           role: 'ambilGambar',
           handler: () => {
-            this.takePicture();
+            this.takePicture1();
           }
         },
         {
           text: 'Pilih Dari Galleri',
           role: 'gallery',
           handler: () => {
-            this.getPhotoFromGallery();
+            this.getPhotoFromGallery1();
           }
         }
       ]
@@ -173,7 +179,7 @@ export class DonaturLelangPage {
     actionSheet.present();
   }
 
-  async takePicture(){
+  async takePicture1(){
     try {
       const options : CameraOptions = {
         quality: 50, //to reduce img size
@@ -185,9 +191,141 @@ export class DonaturLelangPage {
         correctOrientation: true
       }
 
-      const result =  await this.camera.getPicture(options);
+      const result1 =  await this.camera.getPicture(options);
 
-      this.image = 'data:image/jpeg;base64,' + result;
+      this.image1 = 'data:image/jpeg;base64,' + result1;
+
+      this.validPhoto=true;
+      this.gambar1=false;
+
+    }
+    catch (e) {
+      console.error(e);
+      alert("error");
+    }
+
+  }
+
+  getPhotoFromGallery1(){
+    this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
+        targetWidth: 600,
+        targetHeight: 600
+    }).then((imageData) => {
+      // this.base64Image = imageData;
+      // this.uploadFoto();
+      this.image1 = 'data:image/jpeg;base64,' + imageData;
+      this.validPhoto=true;
+      this.gambar1=false;
+      }, (err) => {
+    });
+  }
+
+  updatePicture2() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Pilihan',
+      buttons: [
+        {
+          text: 'Ambil Gambar Baru',
+          role: 'ambilGambar',
+          handler: () => {
+            this.takePicture2();
+          }
+        },
+        {
+          text: 'Pilih Dari Galleri',
+          role: 'gallery',
+          handler: () => {
+            this.getPhotoFromGallery2();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  async takePicture2(){
+    try {
+      const options : CameraOptions = {
+        quality: 50, //to reduce img size
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType:this.camera.MediaType.PICTURE,
+        correctOrientation: true
+      }
+
+      const result2 =  await this.camera.getPicture(options);
+
+      this.image2 = 'data:image/jpeg;base64,' + result2;
+
+      this.validPhoto=true;
+      this.gambar2=false;
+
+    }
+    catch (e) {
+      console.error(e);
+      alert("error");
+    }
+
+  }
+
+  getPhotoFromGallery2(){
+    this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
+        targetWidth: 600,
+        targetHeight: 600
+    }).then((imageData) => {
+      // this.base64Image = imageData;
+      // this.uploadFoto();
+      this.image2 = 'data:image/jpeg;base64,' + imageData;
+      this.validPhoto=true;
+      this.gambar2=false;
+      }, (err) => {
+    });
+  }
+
+  updatePicture3() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Pilihan',
+      buttons: [
+        {
+          text: 'Ambil Gambar Baru',
+          role: 'ambilGambar',
+          handler: () => {
+            this.takePicture3();
+          }
+        },
+        {
+          text: 'Pilih Dari Galleri',
+          role: 'gallery',
+          handler: () => {
+            this.getPhotoFromGallery3();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  async takePicture3(){
+    try {
+      const options : CameraOptions = {
+        quality: 50, //to reduce img size
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType:this.camera.MediaType.PICTURE,
+        correctOrientation: true
+      }
+
+      const result3 =  await this.camera.getPicture(options);
+
+      this.image3 = 'data:image/jpeg;base64,' + result3;
 
       this.validPhoto=true;
 
@@ -199,7 +337,7 @@ export class DonaturLelangPage {
 
   }
 
-  getPhotoFromGallery(){
+  getPhotoFromGallery3(){
     this.camera.getPicture({
         destinationType: this.camera.DestinationType.DATA_URL,
         sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
@@ -208,7 +346,7 @@ export class DonaturLelangPage {
     }).then((imageData) => {
       // this.base64Image = imageData;
       // this.uploadFoto();
-      this.image = 'data:image/jpeg;base64,' + imageData;
+      this.image3 = 'data:image/jpeg;base64,' + imageData;
       this.validPhoto=true;
       }, (err) => {
     });

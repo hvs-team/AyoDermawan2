@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ActionSheetController } from 'ionic-angular';
 
 import { TabsDonaturPage } from '../tabs-donatur/tabs-donatur';
+
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
+import { storage } from 'firebase';
 
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
@@ -15,6 +19,12 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: 'donatur-uang.html',
 })
 export class DonaturUangPage {
+
+  image1: string;
+  validPhoto= false;
+
+  submitted = false;
+
 
   donation: string;  
   lembaga_uang: string;
@@ -30,7 +40,10 @@ export class DonaturUangPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public loadCtrl: LoadingController,
-    public alertCtrl: AlertController,) {
+    public alertCtrl: AlertController,
+    private camera: Camera,
+    public actionSheetCtrl: ActionSheetController) {
+      
 
     this.data.getDataDonatur().then((data) => {
       this.id_donatur = data.id;
@@ -83,23 +96,108 @@ export class DonaturUangPage {
     let loading = this.loadCtrl.create({
         content: 'memuat..'
     });
-    loading.present();
 
-    var id_uangnya = this.id_uang;
-    //tempat firebase
-    this.firedata.object('/uang/'+id_uangnya).update({ 
-        //nama_lembaga: this.nama_lembaga,
-        notifikasi: 2, //pemberitahuan
-        keterangan: "Pembayaran Diterima"  
-      });
-    //
+    if(this.validPhoto){
+          loading.present();
 
-    setTimeout(() => {
-      loading.dismiss();
-      this.navCtrl.setRoot(TabsDonaturPage, 2);
-      alert.present();
-    }, 1000);
+          var id_uangnya = this.id_uang;
+          //tempat firebase
+          this.firedata.object('/uang/'+id_uangnya).update({ 
+              //nama_lembaga: this.nama_lembaga,
+              notifikasi: 2, //pemberitahuan
+              keterangan: "Pembayaran Diterima"  
+            }).then(data => {
 
+              if(this.image1){
+                // const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo1');
+                // picture.putString(this.image1, 'data_url');
+              }              
+            })
+          //
+
+          setTimeout(() => {
+            loading.dismiss();
+            this.navCtrl.setRoot(TabsDonaturPage, 2);
+            alert.present();
+          }, 1000);
+
+    }
+    else{
+
+      let alert = this.alertCtrl.create({
+                title: 'Unggah Bukti Bayar',
+                // subTitle: 'Email atau Password salah',      
+                buttons: ['OK']
+              });
+              // this.vibration.vibrate(1000);
+              alert.present();
+
+    }
+
+  }
+
+  updatePicture1() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Pilihan',
+      buttons: [
+        {
+          text: 'Ambil Gambar Baru',
+          role: 'ambilGambar',
+          handler: () => {
+            this.takePicture1();
+          }
+        },
+        {
+          text: 'Pilih Dari Galleri',
+          role: 'gallery',
+          handler: () => {
+            this.getPhotoFromGallery1();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  async takePicture1(){
+    try {
+      const options : CameraOptions = {
+        quality: 50, //to reduce img size
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType:this.camera.MediaType.PICTURE,
+        correctOrientation: true
+      }
+
+      const result1 =  await this.camera.getPicture(options);
+
+      this.image1 = 'data:image/jpeg;base64,' + result1;
+
+      this.validPhoto=true;
+
+    }
+    catch (e) {
+      console.error(e);
+      alert("error");
+    }
+
+  }
+
+  getPhotoFromGallery1(){
+    this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
+        targetWidth: 600,
+        targetHeight: 600
+    }).then((imageData) => {
+      // this.base64Image = imageData;
+      // this.uploadFoto();
+      this.image1 = 'data:image/jpeg;base64,' + imageData;
+      this.validPhoto=true;
+      }, (err) => {
+    });
   }
 
 }

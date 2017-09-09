@@ -6,6 +6,8 @@ import { TabsDonaturPage } from '../tabs-donatur/tabs-donatur';
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
 
+import { storage } from 'firebase';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -15,6 +17,10 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: 'donatur-barang.html',
 })
 export class DonaturBarangPage {
+
+  image1:string;
+  image2:string;
+  image3:string;
 
   name: string;
   kategori: string;
@@ -51,6 +57,9 @@ export class DonaturBarangPage {
       this.kecamatan = dataBarang.kecamatan;
       this.address = dataBarang.address;
       this.description = dataBarang.description;
+      this.image1 = dataBarang.image1;
+      this.image2 = dataBarang.image2;
+      this.image3 = dataBarang.image3;
 
       //mendapatkan nama_lembaga dari id_lembaga
     this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
@@ -88,6 +97,9 @@ export class DonaturBarangPage {
 
     //tempat firebase
 
+    this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
+      this.nama_lembaga = lembaga.name;
+    });
     
     this.firedata.list('/barang/').push({ 
       id_donatur: this.id_donatur,
@@ -102,7 +114,23 @@ export class DonaturBarangPage {
       description: this.description,
       notifikasi: 1, //tertunda
       keterangan: "Menunggu Persetujuan"
-    });
+    }).then(data => {
+
+      if(this.image1){
+        const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo1');
+        picture.putString(this.image1, 'data_url');
+      }
+      if(this.image2){
+        const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo2');
+        picture.putString(this.image2, 'data_url');
+      }
+      if(this.image3){
+        const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo3');
+        picture.putString(this.image3, 'data_url');
+      }
+
+      
+    })
     //
 
     setTimeout(() => {
