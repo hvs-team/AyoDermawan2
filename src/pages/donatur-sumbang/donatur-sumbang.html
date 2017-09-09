@@ -88,8 +88,8 @@
           Pilih satu
         </p>
 
-        <ion-item>
-          <ion-label><p class="Head">Lembaga</p></ion-label>
+        <ion-item>  <!-- nanti valuenya id dari lembaganya yaa, jangan namanya.. tapi teksnya nama lembaga-->
+3          <ion-label><p class="Head">Lembaga</p></ion-label>
           <ion-select [(ngModel)]="lembaga_barang" name="lembaga_barang" (ionChange)="cekLembagaBarang()" type="text" [ngModelOptions]="{standalone: true}" class="Head2">
             <ion-option value="LFa28pnhlmfqpRMP8IMyTeHaIwB3">pilih yg ini lembaganya</ion-option>
             <ion-option value="Lembaga2">Lembaga2</ion-option>

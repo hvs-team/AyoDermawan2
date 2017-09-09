@@ -35,6 +35,7 @@ export class DonaturSumbangPage {
 
   id_donatur: string;
   nama_lembaga: string
+  lembaga: any;
   
   //uang
   donation: number;  
@@ -62,6 +63,10 @@ export class DonaturSumbangPage {
     public loadCtrl: LoadingController,
     public app: App,
     public modalCtrl: ModalController) {
+      this.firedata.list('lembaga').subscribe(data => {
+        console.log(data);        
+        this.lembaga=data;//ngambil data yang dikasih firebase
+      });
 
       this.data.getDataDonatur().then((data) => {
       this.id_donatur = data.id;

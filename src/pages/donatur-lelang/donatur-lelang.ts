@@ -36,15 +36,17 @@ export class DonaturLelangPage {
   address: string;
   description: string;
 
+  nama_lembaga: string;
+
   constructor(
     private fireauth: AngularFireAuth,
     private firedata: AngularFireDatabase,
     // private vibration: Vibration,
     public navCtrl: NavController, 
-    // public http: Http, 
+    public http: Http, 
     public alertCtrl: AlertController, 
     public navParams: NavParams, 
-    // public data: Data,
+    public data: Data,
     public loadCtrl: LoadingController,
     public app: App,
     public modalCtrl: ModalController) {
@@ -64,6 +66,13 @@ export class DonaturLelangPage {
 
     if(form.valid && this.validKategori && this.validLembagaBarang && this.validProvinsi && this.validKota && this.validKecamatan){
 
+      console.log(this.lembaga_barang);
+      //mendapatkan nama_lembaga dari id_lembaga
+      this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
+        this.nama_lembaga = lembaga.name;
+      });
+      console.log(this.nama_lembaga);
+      
       let input = JSON.stringify({
         name:this.name,
         price:this.price,
