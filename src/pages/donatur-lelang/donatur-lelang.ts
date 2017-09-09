@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { NgForm } from '@angular/forms';
 // import { ModalPage } from './modal-page';
 
+import { Data } from '../../providers/data';
+import { Http } from '@angular/http';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
