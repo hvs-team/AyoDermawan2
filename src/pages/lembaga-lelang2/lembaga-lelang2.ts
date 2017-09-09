@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+
+import { Data } from '../../providers/data';
+import { Http } from '@angular/http';
 /**
  * Generated class for the LembagaLelang2Page page.
  *
@@ -15,8 +20,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LembagaLelang2Page {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    private fireauth: AngularFireAuth,
+    private firedata: AngularFireDatabase,
+    public http: Http,
+    public data: Data,      
+    public navCtrl: NavController, 
+    public navParams: NavParams) 
+    {
+      
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LembagaLelang2Page');

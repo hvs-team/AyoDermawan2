@@ -76,22 +76,24 @@ export class DonaturNotifikasiPage {
     
     //lelang
     this.firedata.list('/lelang/').subscribe(data => {
-      for (var i=0, j=j; i < data.length; i++) {
-        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
+      for (var i=0, j=0; i < data.length; i++) {
+        if( data[i].id_donatur == this.id_donatur && data[i].notifikasi == 1){
           this.list[j]=data[i];
           j++;
         }
       }
+      console.log(this.list);      
     })
 
     //barang
     this.firedata.list('/barang/').subscribe(data => {
-      for (var i=0, j=0; i < data.length; i++) {
-        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
+      for (var i=0, j=j; i < data.length; i++) {
+        if( data[i].id_donatur == this.id_donatur && data[i].notifikasi == 1){
           this.list[j]=data[i];
           j++;
         }
       }
+      console.log(this.list);      
     })
 
     //uang
@@ -102,6 +104,7 @@ export class DonaturNotifikasiPage {
           j++;
         }
       }
+      console.log(this.list);      
     })
     console.log(this.list);
   }
@@ -111,7 +114,7 @@ export class DonaturNotifikasiPage {
     
     //lelang
     this.firedata.list('/lelang/').subscribe(data => {
-      for (var i=0, j=j; i < data.length; i++) {
+      for (var i=0, j=0; i < data.length; i++) {
         if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
           this.list[j]=data[i];
           j++;
@@ -121,7 +124,7 @@ export class DonaturNotifikasiPage {
     
     //barang
     this.firedata.list('/barang/').subscribe(data => {
-      for (var i=0, j=0; i < data.length; i++) {
+      for (var i=0, j=j; i < data.length; i++) {
         if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
           this.list[j]=data[i];
           j++;
