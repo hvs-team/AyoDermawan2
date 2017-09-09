@@ -109,8 +109,8 @@ export class DonaturUangPage {
             }).then(data => {
 
               if(this.image1){
-                // const picture = storage().ref('picture/barang/'+ data.path.pieces_[1] + '--photo1');
-                // picture.putString(this.image1, 'data_url');
+                const picture = storage().ref('picture/barang/'+ id_uangnya + '--photo1');
+                picture.putString(this.image1, 'data_url');
               }              
             })
           //

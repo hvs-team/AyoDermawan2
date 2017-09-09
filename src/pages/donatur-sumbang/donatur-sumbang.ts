@@ -172,7 +172,7 @@ export class DonaturSumbangPage {
           this.app.getRootNav().push(DonaturUangPage, input);
           
       })
-
+ 
       // let input = JSON.stringify({
       //       donation:this.donation,
       //       lembaga_uang:this.lembaga_uang,
