@@ -7,6 +7,8 @@ import { TabsDonaturPage } from '../tabs-donatur/tabs-donatur';
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
 
+import { storage } from 'firebase';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -26,6 +28,7 @@ export class DonaturLelang2Page {
   kecamatan: string;
   address: string;
   description: string;
+  image:string;
 
   id_donatur: string;
   nama_lembaga: string;
@@ -56,6 +59,7 @@ export class DonaturLelang2Page {
       this.kecamatan = dataBarang.kecamatan;
       this.address = dataBarang.address;
       this.description = dataBarang.description;
+      this.image = dataBarang.image;
       
 
   }
@@ -102,7 +106,12 @@ export class DonaturLelang2Page {
       description: this.description,
       notif: 1, //tertunda
       keterangan: "Menunggu Persetujuan"
-    });
+    }).then(data => {
+
+      const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1]);
+        picture.putString(this.image, 'data_url');
+
+    })
     //
 
     setTimeout(() => {

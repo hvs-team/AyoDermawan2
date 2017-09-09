@@ -53,7 +53,7 @@ export class LembagaSignupPage {
     public navParams: NavParams, 
     public data: Data,
     public loadCtrl: LoadingController,
-    private camera: Camera,) {
+    private camera: Camera) {
   }
 
   ionViewDidLoad() {

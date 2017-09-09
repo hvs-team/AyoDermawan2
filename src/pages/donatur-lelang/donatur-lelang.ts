@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, App, ModalController, Platform, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, App, ModalController, Platform, ViewController, ActionSheetController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 // import { ModalPage } from './modal-page';
+
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 
 import { DonaturLelang2Page } from '../donatur-lelang2/donatur-lelang2';
 
@@ -19,6 +21,9 @@ import { DonaturLelang2Page } from '../donatur-lelang2/donatur-lelang2';
 })
 export class DonaturLelangPage {
 
+  image: string;
+  id_donatur:string;
+
   validLembagaUang = false;
 
   validLembagaBarang = false;
@@ -26,6 +31,8 @@ export class DonaturLelangPage {
   validProvinsi = false;
   validKota = false;
   validKecamatan = false;
+
+  validPhoto= false;
 
   submitted = false;
 
@@ -41,6 +48,8 @@ export class DonaturLelangPage {
 
   nama_lembaga: string;
 
+  donatur: FirebaseObjectObservable<any[]>;
+
   constructor(
     private fireauth: AngularFireAuth,
     private firedata: AngularFireDatabase,
@@ -52,7 +61,9 @@ export class DonaturLelangPage {
     public data: Data,
     public loadCtrl: LoadingController,
     public app: App,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public actionSheetCtrl: ActionSheetController,
+    private camera: Camera) {
   }
 
   ionViewDidLoad() {
@@ -67,7 +78,7 @@ export class DonaturLelangPage {
         content: 'memuat..'
     });
 
-    if(form.valid && this.validKategori && this.validLembagaBarang && this.validProvinsi && this.validKota && this.validKecamatan){
+    if(form.valid && this.validKategori && this.validLembagaBarang && this.validProvinsi && this.validKota && this.validKecamatan && this.validPhoto){
 
       console.log(this.lembaga_barang);
       //mendapatkan nama_lembaga dari id_lembaga
@@ -86,10 +97,15 @@ export class DonaturLelangPage {
         kecamatan:this.kecamatan,
         address:this.address,
         description:this.description,
-        });
+        image:this.image
+      });
+      
+      
 
 
       loading.present();
+
+      
 
       // untuk push page dengan tabs dihide
       this.app.getRootNav().push(DonaturLelang2Page, input);
@@ -132,5 +148,70 @@ export class DonaturLelangPage {
  cekKecamatan(){
    this.validKecamatan = true;
  }
+
+
+ updatePicture() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Pilihan',
+      buttons: [
+        {
+          text: 'Ambil Gambar Baru',
+          role: 'ambilGambar',
+          handler: () => {
+            this.takePicture();
+          }
+        },
+        {
+          text: 'Pilih Dari Galleri',
+          role: 'gallery',
+          handler: () => {
+            this.getPhotoFromGallery();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  async takePicture(){
+    try {
+      const options : CameraOptions = {
+        quality: 50, //to reduce img size
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType:this.camera.MediaType.PICTURE,
+        correctOrientation: true
+      }
+
+      const result =  await this.camera.getPicture(options);
+
+      this.image = 'data:image/jpeg;base64,' + result;
+
+      this.validPhoto=true;
+
+    }
+    catch (e) {
+      console.error(e);
+      alert("error");
+    }
+
+  }
+
+  getPhotoFromGallery(){
+    this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
+        targetWidth: 600,
+        targetHeight: 600
+    }).then((imageData) => {
+      // this.base64Image = imageData;
+      // this.uploadFoto();
+      this.image = 'data:image/jpeg;base64,' + imageData;
+      this.validPhoto=true;
+      }, (err) => {
+    });
+  }
 
 }

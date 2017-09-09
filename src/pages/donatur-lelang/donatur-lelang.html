@@ -139,7 +139,15 @@
         </p>
 
         <ion-item no-lines>
-          <button class='Button' color="AyoDermawan" ion-button outline block (click)='UploadFoto()'><p class="ButtonWordBlue">Unggah Foto</p></button>
+          <button class='Button' color="AyoDermawan" ion-button outline block (click)='updatePicture()'><p class="ButtonWordBlue">Unggah Foto</p></button>
+          
+          <p class="Warning" ion-text [hidden]="image || submitted == false" color="danger" padding-left>
+          Unggah foto barang yang akan di lelang
+          </p>
+          
+          <img [src]="image" *ngIf="image" class="Pict" (click)="updatePicture()"/>
+          
+
           <button class='Button' color="AyoDermawan" ion-button block (click)='OpenItemBarang(lelangForm)'><p class="ButtonWord">Lanjut</p></button>
         </ion-item>
 
