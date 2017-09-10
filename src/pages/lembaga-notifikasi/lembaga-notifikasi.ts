@@ -85,7 +85,7 @@ export class LembagaNotifikasiPage {
     //lelang
     this.firedata.list('/lelang/').subscribe(data => {
       for (var i=0, j=0; i < data.length; i++) {
-        if( data[i].lembaga_barang == this.id_lembaga){
+        if( data[i].lembaga_barang == this.id_lembaga && data[i].notifikasi === 2){
           this.list[j]=data[i];
           j++;
         }
@@ -96,7 +96,7 @@ export class LembagaNotifikasiPage {
     //barang
     this.firedata.list('/barang/').subscribe(data => {
       for (var i=0, j=j; i < data.length; i++) {
-        if( data[i].lembaga_barang == this.id_lembaga){
+        if( data[i].lembaga_barang == this.id_lembaga && data[i].notifikasi === 2){
           this.list[j]=data[i];
           j++;
         }
@@ -107,7 +107,7 @@ export class LembagaNotifikasiPage {
     //uang
     this.firedata.list('/uang/').subscribe(data => {
       for (var i=0, j=j; i < data.length; i++) {
-        if( data[i].lembaga_barang == this.id_lembaga){
+        if( data[i].lembaga_barang == this.id_lembaga && data[i].notifikasi === 2){
           this.list[j]=data[i];
           j++;
         }

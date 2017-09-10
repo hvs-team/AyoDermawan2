@@ -124,7 +124,7 @@ export class DonaturNotifikasiPage {
     //lelang
     this.firedata.list('/lelang/').subscribe(data => {
       for (var i=0, j=0; i < data.length; i++) {
-        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
+        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 2){
           this.list[j]=data[i];
           j++;
         }
@@ -134,7 +134,7 @@ export class DonaturNotifikasiPage {
     //barang
     this.firedata.list('/barang/').subscribe(data => {
       for (var i=0, j=j; i < data.length; i++) {
-        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
+        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 2){
           this.list[j]=data[i];
           j++;
         }
@@ -144,7 +144,7 @@ export class DonaturNotifikasiPage {
     //uang
     this.firedata.list('/uang/').subscribe(data => {
       for (var i=0, j=j; i < data.length; i++) {
-        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 1){
+        if( data[i].id_donatur === this.id_donatur && data[i].notifikasi === 2){
           this.list[j]=data[i];
           j++;
         }

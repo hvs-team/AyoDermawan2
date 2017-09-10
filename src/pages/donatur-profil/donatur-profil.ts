@@ -48,7 +48,7 @@ export class DonaturProfilPage {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public app: App) {
-      
+        
         this.data.getDataDonatur().then((data) => {
         this.name_donatur = data.name;
         this.id_donatur = data.id;
