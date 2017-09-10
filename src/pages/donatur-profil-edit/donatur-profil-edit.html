@@ -27,7 +27,7 @@
 			</ion-input>
 	</ion-item>
 	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
-	Nama harus diisi
+	Alamat harus diisi
 	</p>
 
 	<ion-item>
@@ -39,7 +39,7 @@
 	Nomor Telepon harus diisi
 	</p>
 
-  <button class='Button' color="AyoDermawan" ion-button block (click)='simpanProfil()'><p class="ButtonWord">SIMPAN</p></button>
+  <button class='Button' color="AyoDermawan" ion-button block (click)='simpanProfil(profileForm)'><p class="ButtonWord">SIMPAN</p></button>
 
 	</form>
 </ion-content>

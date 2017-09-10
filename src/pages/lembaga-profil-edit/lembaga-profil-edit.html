@@ -13,7 +13,7 @@
 
 	<ion-item>
 			<ion-label floating><p class="Head">Nama</p></ion-label>
-			<ion-input class="Head2" value="{{name_lembaga}}" [(ngModel)]="namel" name="name" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"	required>
+			<ion-input class="Head2" value="{{name_lembaga}}" [(ngModel)]="name_lembaga" name="name_lembaga" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"	required>
 			</ion-input>
 	</ion-item>
 	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
@@ -21,25 +21,48 @@
 	</p>
 
 	<ion-item>
-			<ion-label floating><p class="Head">Email</p></ion-label>
-			<ion-input class="Head2" value="{{email_lembaga}}" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+			<ion-label floating><p class="Head">Alamat</p></ion-label>
+			<ion-input class="Head2" value="{{address_lembaga}}" [(ngModel)]="address_lembaga" name="address_lembaga" type="text" #alamat="ngModel" spellcheck="false" autocapitalize="off"
 				required>
 			</ion-input>
 	</ion-item>
-	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
-	Nama harus diisi
+	<p ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left class="Warning">
+	Alamat harus diisi
 	</p>
 
 	<ion-item>
 			<ion-label floating><p class="Head">Nomor Telepon</p></ion-label>
-			<ion-input class="Head2" value="{{telephone_lembaga}}" [(ngModel)]="no_tel_patient" name="telp" type="number" pattern="[0]{1}[0-9]{1,}" maxlength="13" required	required>
+			<ion-input class="Head2" value="{{telephone_lembaga}}" [(ngModel)]="telephone_lembaga" name="telephone_lembaga" type="number" pattern="[0]{1}[0-9]{1,}" maxlength="13" #telpon="ngModel" required	required>
 			</ion-input>
 	</ion-item>
-	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+	<p ion-text [hidden]="telpon.valid || submitted == false" color="danger" padding-left class="Warning">
 	Nomor Telepon harus diisi
 	</p>
 
-  <button class='Button' color="AyoDermawan" ion-button block (click)='simpanProfil()'><p class="ButtonWord">SIMPAN</p></button>
+	<ion-item>
+          <ion-label><p class="Head">Pilih Bank</p></ion-label>
+          <ion-select [(ngModel)]="bank" name="Pilihan Bank" (ionChange)="cekBank()" type="text" [ngModelOptions]="{standalone: true}" class="Head2">
+            <ion-option value="BCA">BCA</ion-option>
+            <ion-option value="BNI">BNI</ion-option>
+            <ion-option value="BRI">BRI</ion-option>
+            <ion-option value="MANDIRI">MANDIRI</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <p class="Warning" ion-text [hidden]="bank || submitted == false" color="danger" padding-left>
+          Pilih satu
+        </p>
+
+      <ion-item>
+				<ion-label floating ><p class="Head">Nomor Rekening</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="norek" name="norek" type="number" #norekening="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p class="Warning" ion-text [hidden]="norekening.valid || submitted == false" color="danger" padding-left>
+				Nomor rekening harus diisi
+			</p>
+
+  <button class='Button' color="AyoDermawan" ion-button block (click)='simpanProfil(profileForm)'><p class="ButtonWord">SIMPAN</p></button>
 
 	</form>
 </ion-content>

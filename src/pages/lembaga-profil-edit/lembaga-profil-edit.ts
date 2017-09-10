@@ -17,11 +17,15 @@ import { Http } from '@angular/http';
 })
 export class LembagaProfilEditPage {
 
-  id_lembaga:string;
+  submitted = false;
+  validBank = false;
+
   name_lembaga: string;
   email_lembaga: string;
   telephone_lembaga: string;
   address_lembaga: string;
+  norek: string;
+  bank: string;
 
   constructor(
     private fireauth: AngularFireAuth,
@@ -43,27 +47,35 @@ export class LembagaProfilEditPage {
   ionViewWillEnter() {
     //ini ni ngambil value yang di return dari data.ts
     this.data.getDataLembaga().then((data) => {
-      this.id_lembaga = data.id_lembaga;
       this.name_lembaga = data.name;
       this.email_lembaga = data.email;
       this.telephone_lembaga = data.telephone;
       this.address_lembaga = data.address;
+      this.norek = data.norek;
+      this.bank = data.bank;
     })
   }
 
-  simpanProfil(){
+  simpanProfil(form: NgForm){
 
     let loading = this.loadCtrl.create({
         content: 'memuat..'
     });
+
+    if(form.valid){
+
     loading.present();
+
+    
 
     var user = this.fireauth.auth.currentUser;          
     this.firedata.object('/lembaga/'+user.uid).update({
       name: this.name_lembaga, 
       email:this.email_lembaga, 
       address:this.address_lembaga, 
-      telephone:this.telephone_lembaga
+      telephone:this.telephone_lembaga,
+      bank:this.bank,
+      norek:this.norek
     });
     
     
@@ -76,9 +88,26 @@ export class LembagaProfilEditPage {
       loading.dismiss();
       this.navCtrl.setRoot(TabsLembagaPage, 2);
     }, 1000);
+
     
+    }
     
+    else{
+      let alert = this.alertCtrl.create({
+                  title: 'Lengkapi Data',      
+                  buttons: ['OK']
+                });
+                // this.vibration.vibrate(1000);
+                alert.present();
+    }
   }
+
+  cekBank(){
+
+    this.validBank = true;
+ 
+ }
+
 
 
 }

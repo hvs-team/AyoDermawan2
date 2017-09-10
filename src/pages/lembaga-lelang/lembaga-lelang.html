@@ -14,14 +14,15 @@
 
 
 <ion-content>
-  <ion-item text-wrap>
+  <ion-item *ngFor="let data of list" text-wrap>
     <ion-thumbnail item-left >
-      <img src="assets/pict/mock2.jpeg" class="Gambar"/>
+      <img src="assets/pict/BarangBiru.png" *ngIf="!data.image" class="Gambar"/>
+      <img [src]="data.image" *ngIf="image" class="Gambar"/>
     </ion-thumbnail>
     <ion-row>
       <ion-col col-9>
-        <p class="NamaBarang">Lukisan X</p>
-        <p class="Harga">Rp. 2.000.000</p>
+        <p class="NamaBarang">{{data.nama}}</p>
+        <p class="Harga">Rp. {{data.price}}</p>
       </ion-col>
       <ion-col col-3>
         <button ion-button small color="AyoDermawan" (click)="OpenItem()" class="Button" block><p class="ButtonWord">Lihat</p></button>

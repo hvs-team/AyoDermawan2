@@ -16,17 +16,17 @@
     <p class="Nama">{{name_lembaga}}</p>
   </ion-item>
 
-  <ion-item padding-right>
+  <ion-item padding-right text-wrap>
 	  <ion-icon name="mail" item-left class="IconMail"></ion-icon>
 	  <p class="Head">Email</p>
 	  <p class="Konten">{{email_lembaga}}</p>
 	</ion-item>
-  <ion-item padding-right>
+  <ion-item padding-right text-wrap>
 	  <ion-icon name="call" item-left class="Icon"></ion-icon>
 	  <p class="Head">Nomor Telepon</p>
 	  <p class="Konten">{{telephone_lembaga}}</p>
 	</ion-item>
-  <ion-item padding-right>
+  <ion-item padding-right text-wrap>
 	  <ion-icon name="md-map" item-left class="Icon"></ion-icon>
 	  <p class="Head">Alamat</p>
 	  <p class="Konten">{{address_lembaga}}</p>
@@ -34,7 +34,7 @@
 
   <!--KONDISI SATU-->
   <div>
-  <ion-item padding-right no-lines>
+  <ion-item padding-right no-lines text-wrap>
 	  <ion-icon name="ios-card" item-left class="Icon"></ion-icon>
 	  <p class="Head">{{bank_lembaga}}</p>
 	  <p class="Konten">{{norek_lembaga}}</p>
@@ -42,13 +42,13 @@
   </div>
 
   <!--KONDISI DUA-->
-  <div>
+  <!--<div>
   <ion-item padding-right no-lines>
 	  <ion-icon name="ios-card" item-left class="IconSpesial"></ion-icon>
 	  <p class="Head">{{bank_lembaga}}</p>
 	  <p class="Konten">{{norek_lembaga}}</p>
 	</ion-item>
-  </div>
+  </div>-->
 
   <ion-item padding-left-right>
     <button class='Button' color="AyoDermawan" ion-button block (click)='editProfil()'><p class="ButtonWordWhite">Sunting Profil</p></button>

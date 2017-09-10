@@ -58,7 +58,8 @@ export class LembagaProfilPage {
         this.telephone_lembaga = data.telephone;
         this.address_lembaga = data.address;
         this.norek_lembaga = data.norek;
-        this.bank_lembaga = data.bank
+        this.bank_lembaga = data.bank;
+        this.ambilGambar();
       })
 
 
@@ -142,9 +143,11 @@ export class LembagaProfilPage {
 
       this.image = 'data:image/jpeg;base64,' + result;
 
-      const picture = storage().ref('picture/profileDonatur/'+ this.id_lembaga);
+      const picture = storage().ref('picture/profileLembaga/'+ this.id_lembaga);
       picture.putString(this.image, 'data_url');
-      
+      this.firedata.object('/lembaga/'+ this.id_lembaga).update({
+        image: 'picture/profileLembaga/'+ this.id_lembaga + '.jpeg'
+      })
 
     }
     catch (e) {
@@ -165,12 +168,20 @@ export class LembagaProfilPage {
       // this.uploadFoto();
       this.image = 'data:image/jpeg;base64,' + imageData;
 
-      const picture = storage().ref('picture/profileDonatur/'+ this.id_lembaga);
+      const picture = storage().ref('picture/profileLembaga/'+ this.id_lembaga);
       picture.putString(this.image, 'data_url');
-      
+      this.firedata.object('/lembaga/'+ this.id_lembaga).update({
+        image: 'picture/profileLembaga/'+ this.id_lembaga + '.jpeg'
+      })
             
       }, (err) => {
     });
+  }
+
+  ambilGambar() {
+    storage().ref().child('picture/profileLembaga/'+ this.id_lembaga).getDownloadURL().then(url =>{
+      this.image=url;
+    })
   }
 
 

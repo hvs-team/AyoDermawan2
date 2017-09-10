@@ -6,12 +6,7 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
-/**
- * Generated class for the LembagaLelangPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 // @IonicPage()
 @Component({
@@ -19,6 +14,8 @@ import { Http } from '@angular/http';
   templateUrl: 'lembaga-lelang.html',
 })
 export class LembagaLelangPage {
+
+  lelang: any;
 
   list: any;
   id_lembaga:string;
@@ -33,16 +30,11 @@ export class LembagaLelangPage {
     {
       this.data.getDataLembaga().then((data) => {
         this.id_lembaga = data.id;
-      })
-
-      this.list={};
+        this.list={};
       
           this.firedata.list('/lelang/').subscribe(data => {
             for (var i=0, j=0; i < data.length; i++) {
-              // console.log(i);
-              // console.log(this.id_lembaga);
-              // console.log(this.list[j]);
-              // console.log(data[i].lembaga_barang);
+              
               if( data[i].lembaga_barang == this.id_lembaga){
                 this.list[j]=data[i];
                 j++;
@@ -50,8 +42,10 @@ export class LembagaLelangPage {
             }
             console.log(this.list);                  
           })  
-          console.log(this.list);                  
-          
+          console.log(this.list); 
+      })
+
+                
     }
 
   ionViewDidLoad() {
