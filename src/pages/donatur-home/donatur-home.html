@@ -28,10 +28,10 @@
     <button color="AyoDermawan" ion-fab mini (click)="tambahLelang()"><ion-icon  name="md-add"></ion-icon></button>
   </ion-fab>
 
-  <!--<ion-item *ngFor="let data of lelang">
+  <ion-item *ngFor="let data of lelang">
     <ion-card>
           <img src="assets/pict/BarangBiru.png" *ngIf="!data.image" class="Item"/>
-          <img [src]="data.image" *ngIf="image" class="Item"/>
+          <img [src]="data.image1" *ngIf="image" class="Item"/>
           <ion-card-content>
             <p class="JudulItem">{{data.nama}}</p>
             <p class="HargaItem">
@@ -39,7 +39,7 @@
             </p>
           </ion-card-content>
         </ion-card>  
-  </ion-item>-->
+  </ion-item>
 
   <ion-grid>
 

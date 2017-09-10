@@ -18,6 +18,7 @@ export class LembagaLelangPage {
   lelang: any;
 
   list: any;
+  barang: any;
   id_lembaga:string;
 
   constructor(
@@ -30,19 +31,19 @@ export class LembagaLelangPage {
     {
       this.data.getDataLembaga().then((data) => {
         this.id_lembaga = data.id;
-        this.list={};
+        this.list=[];
       
-          this.firedata.list('/lelang/').subscribe(data => {
-            for (var i=0, j=0; i < data.length; i++) {
+          this.firedata.list('/lelang/').subscribe(barang => {
+            for (var i=0, j=0; i < barang.length; i++) {
               
-              if( data[i].lembaga_barang == this.id_lembaga){
-                this.list[j]=data[i];
+              if( barang[i].lembaga_barang == this.id_lembaga){
+                this.list[j]=barang[i];
                 j++;
               }
             }
-            console.log(this.list);                  
+            //console.log(this.list);                  
           })  
-          console.log(this.list); 
+          console.log(this.list);
       })
 
                 
