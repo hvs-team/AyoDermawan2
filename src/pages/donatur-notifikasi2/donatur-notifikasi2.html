@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar color="AyoDermawan">
+    <ion-title>Donasi Barang</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-slides pager>
+
+  <ion-slide>
+    <img class="Gambar" [src]="image1" *ngIf="image1">
+    <img *ngIf="!image1" src="assets/pict/BarangBiru.png"/>
+  </ion-slide>
+
+  <ion-slide>
+    <img class="Gambar" [src]="image2" *ngIf="image2">
+    <img *ngIf="!image2" src="assets/pict/BarangBiru.png"/>
+  </ion-slide>
+
+  <ion-slide>
+    <img class="Gambar" [src]="image3" *ngIf="image3">
+    <img *ngIf="!image3" src="assets/pict/BarangBiru.png"/>
+  </ion-slide>
+
+</ion-slides>
+
+  <ion-item text-wrap>
+    <ion-thumbnail item-left>
+      <img src="assets/pict/BarangBiru.png"/>
+    </ion-thumbnail>
+    <p class="Head">Nama Barang</p>
+    <p class="Konten">{{name}}</p>
+  </ion-item>
+
+  <ion-item text-wrap>
+    <ion-thumbnail item-left>
+      <img src="assets/pict/ListBiru.png"/>
+    </ion-thumbnail>
+    <p class="Head">Kategori</p>
+    <p class="Konten">{{kategori}}</p>
+  </ion-item>
+
+  <ion-item text-wrap>
+    <ion-thumbnail item-left>
+      <img src="assets/pict/LembagaIconSmall.png"/>
+    </ion-thumbnail>
+    <p class="Head">Lembaga Penerima</p>
+    <p class="Konten">{{nama_lembaga}}</p>
+  </ion-item>
+
+  <ion-item text-wrap>
+    <ion-thumbnail item-left>
+      <img src="assets/pict/PetaBiru.png"/>
+    </ion-thumbnail>
+    <p class="Head">Alamat Pengambilan</p>
+    <p class="Konten">{{address}}, {{kecamatan}}, {{kota}}, {{provinsi}}</p>
+  </ion-item>
+
+  
+  <ion-item no-lines>
+        <ion-row>
+          <ion-col col-6>
+            <button class='ButtonSmall' color="danger" ion-button (click)='Cancel()'><p class="ButtonWordWhite">Batal</p></button>
+          </ion-col>
+          <ion-col col-6>
+            <button class='ButtonSmall' color="secondary" ion-button (click)='Finish()'><p class="ButtonWordWhite">Selesai</p></button>
+          </ion-col>
+        </ion-row>
+  </ion-item>
+
+</ion-content>

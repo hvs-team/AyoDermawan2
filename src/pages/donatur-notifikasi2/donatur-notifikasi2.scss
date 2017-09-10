@@ -1,0 +1,78 @@
+page-donatur-notifikasi2 {
+    .item ion-thumbnail {
+    img {
+        position: relative;
+        top: 2vw;
+
+        width: 20vw;    
+        height: 15vw;
+        }
+    }
+
+    .Head {
+        font-size: 5vw;
+        color: #202020;
+    }
+
+    .Head2 {
+        margin-left: 5vw;
+        font-size: 5vw;
+        color: gray;
+    }
+
+    .Konten {
+        font-size: 4.5vw;
+        color: gray;
+    }
+
+    .Bank {
+        margin-top:3vw;
+        border-style: solid;
+        border-width: 1px; 
+    }
+
+    .item, .item-divider {
+     border-color: rgba(156, 156, 156, 0.7);
+    }
+
+    .Button {
+        height: 10vw !important;
+        width: 100%;
+        margin-top: 3vw; 
+    }
+
+    .ButtonSmall {
+        height: 10vw !important;
+        width: 100%; 
+    }
+
+    .ButtonWord {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: white;
+    }
+
+	.ButtonWordBlue {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: #1e99d0;
+	}
+
+    .ButtonWordWhite {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: white;
+	}
+
+    ion-slides {
+        display: block;
+        width: 100%;
+        height: 40vh;
+    }
+
+    .Gambar {
+        position: relative;
+        bottom: 5vh;
+        height: 40vh;
+    }
+}

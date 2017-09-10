@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
+import { DonaturNotifikasi2Page } from '../donatur-notifikasi2/donatur-notifikasi2';
 
 
 // @IonicPage()
@@ -28,7 +30,7 @@ export class DonaturNotifikasiPage {
     public data: Data,
     public navCtrl: NavController, 
     public navParams: NavParams,
-  ) {
+    public app: App) {
     }
 
 
@@ -155,7 +157,7 @@ export class DonaturNotifikasiPage {
   }
 
   masuk(data){
-    
+    this.app.getRootNav().push(DonaturNotifikasi2Page, data);
   }
 
 }
