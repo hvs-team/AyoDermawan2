@@ -36,6 +36,7 @@
         <ion-item>  <!-- nanti valuenya id dari lembaganya yaa, jangan namanya.. tapi teksnya nama lembaga-->
           <ion-label><p class="Head">Lembaga</p></ion-label>
           <ion-select [(ngModel)]="lembaga_uang" name="lembaga_uang" (ionChange)="cekLembagaUang()" type="text" [ngModelOptions]="{standalone: true}" class="Head2">
+            <!--<ion-option *ngFor="let data of lembaga" [value]="data"></ion-option>-->
             <ion-option value="LFa28pnhlmfqpRMP8IMyTeHaIwB3">pilih yg ini lembaganya</ion-option>
             <ion-option value="Lembaga2">Lembaga2</ion-option>
             <ion-option value="Lembaga3">Lembaga3</ion-option>
@@ -163,16 +164,11 @@
         <ion-item class="Konten1">
           
           <ion-label stacked><p class="Head">Deskripsi Barang</p></ion-label>
-          <ion-textarea class="Head2" [(ngModel)]="description" name="description" type="text" #deskripsi="ngModel" placeholder="Berikan Deskripsi barang yang akan didonasikan" spellcheck="false" autocapitalize="off"
+            <ion-textarea class="Head3" [(ngModel)]="description" name="description" type="text" #deskripsi="ngModel" placeholder="Berikan Deskripsi barang yang akan didonasikan" spellcheck="false" autocapitalize="off"
             autosize text-wrap required>
-          </ion-textarea>
+            </ion-textarea>
         
-
-        <!--<ion-label stack class="Head">Deskripsi Barang</ion-label>
-          <ion-textarea class="Head2"  [(ngModel)]="description" name="description" type="text" #deskripsi="ngModel" required autosize>
-        </ion-textarea>-->
         </ion-item>
-
         <p class="Warning" ion-text [hidden]="deskripsi.valid || submitted == false" color="danger" padding-left>
           Deskripsi barang harus diisi
         </p>

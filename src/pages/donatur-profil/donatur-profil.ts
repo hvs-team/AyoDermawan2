@@ -167,8 +167,11 @@ export class DonaturProfilPage {
       this.image = 'data:image/jpeg;base64,' + result;
 
       console.log(this.id_donatur);
+      // ini ke storage
       const picture = storage().ref('picture/profileDonatur/'+ this.id_donatur);
       picture.putString(this.image, 'data_url');
+
+      // ini kedata base
       this.firedata.object('/donatur/'+ this.id_donatur).update({
         image: 'picture/profileDonatur/'+ this.id_donatur + '.jpeg'
       })

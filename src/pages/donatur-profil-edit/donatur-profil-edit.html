@@ -11,7 +11,7 @@
   
 	<form #profileForm="ngForm" novalidate>
 
-	<ion-item>
+	<ion-item text-wrap>
 			<ion-label floating><p class="Head">Nama</p></ion-label>
 			<ion-input class="Head2" value="{{name_donatur}}" [(ngModel)]="name_donatur" name="name_donatur" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"	required>
 			</ion-input>
@@ -20,17 +20,19 @@
 	Nama harus diisi
 	</p>
 
-	<ion-item>
-			<ion-label floating><p class="Head">Alamat</p></ion-label>
-			<ion-input class="Head2" value="{{address_donatur}}" [(ngModel)]="address_donatur" name="address_donatur" type="text" #user="ngModel" spellcheck="false" autocapitalize="off"
-				required>
-			</ion-input>
-	</ion-item>
-	<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+	<ion-item class="Konten1">
+          
+     <ion-label stacked><p class="Head">Alamat</p></ion-label>
+     
+		 <ion-textarea class="Head2" value="{{address_donatur}}" [(ngModel)]="address_donatur" name="address_donatur" type="text" #user="ngModel" spellcheck="false" autocapitalize="off" required>
+     </ion-textarea>
+        
+  </ion-item>
+  <p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
 	Alamat harus diisi
 	</p>
 
-	<ion-item>
+	<ion-item text-wrap>
 			<ion-label floating><p class="Head">Nomor Telepon</p></ion-label>
 			<ion-input class="Head2" value="{{telephone_donatur}}" [(ngModel)]="telephone_donatur" name="telephone_donatur" type="number" pattern="[0]{1}[0-9]{1,}" maxlength="13" required	required>
 			</ion-input>
