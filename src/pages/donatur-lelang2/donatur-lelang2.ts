@@ -118,25 +118,35 @@ export class DonaturLelang2Page {
       if(this.image1){
         const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1] + '--photo1');
         picture.putString(this.image1, 'data_url');
-        this.firedata.object('/lelang/'+ data.path.pieces_[1]).update({
-          image1: 'picture/lelang/'+ data.path.pieces_[1] + '--photo1.jpeg'
+
+        storage().ref().child('picture/lelang/'+ data.path.pieces_[1] + '--photo1').getDownloadURL().then(url =>{
+          // ini kedata base
+          this.firedata.object('/lelang/'+ data.path.pieces_[1]).update({
+          image: url })
         })
+
       }
       if(this.image2){
         const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1] + '--photo2');
         picture.putString(this.image2, 'data_url');
-        this.firedata.object('/lelang/'+ data.path.pieces_[1]).update({
-          image2: 'picture/lelang/'+ data.path.pieces_[1] + '--photo2.jpeg'
+
+        storage().ref().child('picture/lelang/'+ data.path.pieces_[1] + '--photo2').getDownloadURL().then(url =>{
+          // ini kedata base
+          this.firedata.object('/lelang/'+ data.path.pieces_[1]).update({
+          image: url })
         })
+
       }
       if(this.image3){
         const picture = storage().ref('picture/lelang/'+ data.path.pieces_[1] + '--photo3');
         picture.putString(this.image3, 'data_url');
-        this.firedata.object('/lelang/'+ data.path.pieces_[1]).update({
-          image3: 'picture/lelang/'+ data.path.pieces_[1] + '--photo3.jpeg'
+
+        storage().ref().child('picture/lelang/'+ data.path.pieces_[1] + '--photo3').getDownloadURL().then(url =>{
+          // ini kedata base
+          this.firedata.object('/lelang/'+ data.path.pieces_[1]).update({
+          image: url })
         })
       }
-
       
     })
     //

@@ -145,10 +145,12 @@ export class LembagaProfilPage {
 
       const picture = storage().ref('picture/profileLembaga/'+ this.id_lembaga);
       picture.putString(this.image, 'data_url');
-      this.firedata.object('/lembaga/'+ this.id_lembaga).update({
-        image: 'picture/profileLembaga/'+ this.id_lembaga + '.jpeg'
-      })
 
+      storage().ref().child('picture/profileLembaga/'+ this.id_lembaga).getDownloadURL().then(url =>{
+        // ini kedata base
+        this.firedata.object('/lembaga/'+ this.id_lembaga).update({
+        image: url })
+      })
     }
     catch (e) {
       console.error(e);

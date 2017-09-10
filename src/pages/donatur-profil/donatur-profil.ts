@@ -55,7 +55,8 @@ export class DonaturProfilPage {
         this.email_donatur = data.email;
         this.telephone_donatur = data.telephone;
         this.address_donatur = data.address;
-        this.ambilGambar();        
+        this.image=data.image;
+       // this.ambilGambar();        
       })
       
     }
@@ -171,10 +172,12 @@ export class DonaturProfilPage {
       const picture = storage().ref('picture/profileDonatur/'+ this.id_donatur);
       picture.putString(this.image, 'data_url');
 
-      // ini kedata base
-      this.firedata.object('/donatur/'+ this.id_donatur).update({
-        image: 'picture/profileDonatur/'+ this.id_donatur + '.jpeg'
+      storage().ref().child('picture/profileDonatur/'+ this.id_donatur).getDownloadURL().then(url =>{
+        // ini kedata base
+        this.firedata.object('/donatur/'+ this.id_donatur).update({
+        image: url })
       })
+      
 
 
     }
@@ -199,8 +202,12 @@ export class DonaturProfilPage {
       const picture = storage().ref('picture/profileDonatur/'+ this.id_donatur);
       picture.putString(this.image, 'data_url');
       
-      
-      this.ambilGambar();
+      storage().ref().child('picture/profileDonatur/'+ this.id_donatur).getDownloadURL().then(url =>{
+        // ini kedata base
+        this.firedata.object('/donatur/'+ this.id_donatur).update({
+        image: url })
+      })
+
       }, (err) => {
     });
   }
@@ -208,6 +215,7 @@ export class DonaturProfilPage {
   ambilGambar() {
     storage().ref().child('picture/profileDonatur/'+ this.id_donatur).getDownloadURL().then(url =>{
       this.image=url;
+      console.log(url);
     })
   }
 
