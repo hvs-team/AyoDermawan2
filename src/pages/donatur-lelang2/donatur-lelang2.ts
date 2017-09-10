@@ -19,6 +19,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class DonaturLelang2Page {
  
+  nama_donatur: string;
   name: string;
   price: string;
   kategori: string;
@@ -48,6 +49,7 @@ export class DonaturLelang2Page {
     ) {
       this.data.getDataDonatur().then((data) => {
         this.id_donatur = data.id;
+        this.nama_donatur = data.name;
      })
 
      let dataBarang = JSON.parse(this.navParams.data);
@@ -97,6 +99,7 @@ export class DonaturLelang2Page {
     });
 
     this.firedata.list('/lelang/').push({ 
+      nama_donatur: this.nama_donatur,
       id_donatur: this.id_donatur,
       nama: this.name,
       price: this.price,
