@@ -32,6 +32,7 @@ export class LembagaDonasiPage {
       {
         this.barang = this.navParams.data;
         console.log("barang", this.barang);
+
       }
 
   ionViewDidLoad() {
@@ -39,10 +40,58 @@ export class LembagaDonasiPage {
   }
 
   Cancel() {
+    this.firedata.object('/lelang/'+this.barang.$key).subscribe(data1 => {
+      if(data1.nama){
+          this.firedata.object('/lelang/'+this.barang.$key).update({
+            notifikasi: 2, keterangan: "Sudah Ditolak"
+          })
+      }
+      else{
+        this.firedata.object('/barang/'+this.barang.$key).subscribe(data2 => {
+          if(data2.nama){
+            this.firedata.object('/barang/'+this.barang.$key).update({
+              notifikasi: 2, keterangan: "Sudah Ditolak"
+            })
+          }
+          else{
+            this.firedata.object('/uang/'+this.barang.$key).subscribe(data3 => {
+              this.firedata.object('/uang/'+this.barang.$key).update({
+                notifikasi: 2
+              })
+            })
+          }
+        })
+      }
+    })
+
     this.navCtrl.pop();
   }
 
   Finish() {
+    this.firedata.object('/lelang/'+this.barang.$key).subscribe(data1 => {
+      if(data1.nama){
+          this.firedata.object('/lelang/'+this.barang.$key).update({
+            notifikasi: 2, keterangan: "Sudah Disetujui"
+          })
+      }
+      else{
+        this.firedata.object('/barang/'+this.barang.$key).subscribe(data2 => {
+          if(data2.nama){
+            this.firedata.object('/barang/'+this.barang.$key).update({
+              notifikasi: 2, keterangan: "Sudah Disetujui"
+            })
+          }
+          else{
+            this.firedata.object('/uang/'+this.barang.$key).subscribe(data3 => {
+              this.firedata.object('/uang/'+this.barang.$key).update({
+                notifikasi: 2
+              })
+            })
+          }
+        })
+      }
+    })
+  
     this.navCtrl.pop();
   }
 
