@@ -92,5 +92,51 @@ page-donatur-home2 {
         position: relative;
         bottom: 5vh;
         height: 40vh;
-    }
+    }   
 }
+.action-sheets-basic-page {
+        padding: 6.8rem 0;
+       
+       .action-sheet-title {
+           font-size: 5vw;
+           text-align: center;
+       }
+       .action-sheet-sub-title {
+           font-size: 7vw;
+           color: DodgerBlue;
+           text-align: center;
+       }
+        .ion-md-share {
+            color: #ED4248;
+            text-align: center;
+        }
+        .ion-md-cancel {
+            color: #ED4248;
+        }
+        .ion-md-arrow-dropright-circle {
+            color: #508AE4;
+        }
+        .ion-md-heart-outline {
+            color: #31D55F;
+        }
+        .button-inner{
+            font-size: 5vw;
+            text-align: center;
+        }
+        .action-sheet-cancel{
+            font-size: 7vw;
+           color: DodgerBlue;
+           text-align: center;
+           align-content: center;
+           align-items: center;
+        }
+        .action-sheet-destructive ion-icon {
+            color: #757575;
+        }
+        }
+
+        .action-sheet-container{
+            padding: 5.8rem 0;
+            background: #fff;
+        }
+

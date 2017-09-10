@@ -22,8 +22,10 @@ export class DonaturHomePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public app: App) {
-      this.firedata.list('/lelang/').subscribe(data=>{
+      this.firedata.list('lelang').subscribe(data=>{
         console.log(data);
+        this.lelang=data;//ngambil data yang dikasih firebase
+      
       })
   }
 
@@ -31,9 +33,9 @@ export class DonaturHomePage {
     console.log('ionViewDidLoad DonaturHomePage');
   }
 
-  OpenItem() {
+  OpenItem(data) {
     // untuk push page dengan tabs dihide
-    this.app.getRootNav().push(DonaturHome2Page);
+    this.app.getRootNav().push(DonaturHome2Page, data);
   }
 
   tambahLelang() {

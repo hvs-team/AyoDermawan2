@@ -16,7 +16,7 @@
   <ion-slides pager>
 
   <ion-slide>
-    <img class="Gambar" src="assets/pict/mock5.jpg"/>
+    <img src="assets/pict/BarangBiru.png"/>
   </ion-slide>
 
   <ion-slide>
@@ -34,23 +34,15 @@
       <img src="assets/pict/BarangBiru.png"/>
     </ion-thumbnail>
     <p class="Head">Nama Barang</p>
-    <p class="Konten">Nama Barang X</p>
+    <p class="Konten">{{nama}}</p>
   </ion-item>
 
   <ion-item text-wrap>
     <ion-thumbnail item-left>
-      <img src="assets/pict/LembagaIconSmall.png"/>
+      <img src="assets/pict/UangBiru.png"/>
     </ion-thumbnail>
-    <p class="Head">Lembaga Penerima</p>
-    <p class="Konten">Lembaga X</p>
-  </ion-item>
-
-  <ion-item text-wrap>
-    <ion-thumbnail item-left>
-      <img src="assets/pict/PetaBiru.png"/>
-    </ion-thumbnail>
-    <p class="Head">Alamat Pengambilan</p>
-    <p class="Konten">Jalan X, Kecamatan X, Kabupaten X, Provinsi X</p>
+    <p class="Head">Harga Terkini</p>
+    <p class="Konten">Rp. {{price}}</p>
   </ion-item>
 
   <ion-item text-wrap>
@@ -58,19 +50,11 @@
       <img src="assets/pict/ListBiru.png"/>
     </ion-thumbnail>
     <p class="Head">Deskripsi Barang</p>
-    <p class="Konten">Kateogiri Barang X</p>
+    <p class="Konten">{{deskripsi}}</p>
   </ion-item>
 
-  
-  <ion-item no-lines>
-        <ion-row>
-          <ion-col col-6>
-            <button class='ButtonSmall' color="danger" ion-button (click)='Cancel()'><p class="ButtonWordWhite">Batal</p></button>
-          </ion-col>
-          <ion-col col-6>
-            <button class='ButtonSmall' color="secondary" ion-button (click)='Finish()'><p class="ButtonWordWhite">Selesai</p></button>
-          </ion-col>
-        </ion-row>
+  <ion-item>
+    <button class='Button' color="AyoDermawan" ion-button block (click)='bet()'><p class="ButtonWord">Naikkan Tawaran</p></button>
   </ion-item>
 
 <!--Action Sheet-->
