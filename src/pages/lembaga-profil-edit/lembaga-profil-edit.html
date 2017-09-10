@@ -20,13 +20,26 @@
 	Nama harus diisi
 	</p>
 
-	<ion-item>
+	<!--<ion-item>
 			<ion-label floating><p class="Head">Alamat</p></ion-label>
 			<ion-input class="Head2" value="{{address_lembaga}}" [(ngModel)]="address_lembaga" name="address_lembaga" type="text" #alamat="ngModel" spellcheck="false" autocapitalize="off"
 				required>
 			</ion-input>
 	</ion-item>
 	<p ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left class="Warning">
+	Alamat harus diisi
+	</p>-->
+
+	<ion-item class="Konten1">
+          
+     <ion-label stacked><p class="Head">Alamat</p></ion-label>
+     
+		 <ion-textarea class="Head2" value="{{address_lembaga}}" [(ngModel)]="address_lembaga" name="address_lembaga" type="text" #alamat="ngModel" spellcheck="false" autocapitalize="off"
+				required>
+     </ion-textarea>
+        
+  </ion-item>
+  <p ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left class="Warning">
 	Alamat harus diisi
 	</p>
 
