@@ -33,6 +33,9 @@ export class DonaturNotifikasi2Page {
   description: string;
   telephone: string;
   nama_donatur: string;
+  bank:string;
+  norek:string;
+  image:string;
   
   id_donatur: string;
   nama_lembaga:string;
@@ -49,26 +52,21 @@ export class DonaturNotifikasi2Page {
     public alertCtrl: AlertController,
     ) {
       
-      let dataBarang = JSON.parse(this.navParams.data);
+    //   let dataBarang = JSON.parse(this.navParams.data);
 
-      this.nama_donatur = dataBarang.nama_donatur;
-      this.telephone = dataBarang.telephone;
-      this.name = dataBarang.name;
-      this.kategori = dataBarang.kategori;
-      this.lembaga_barang = dataBarang.lembaga_barang;
-      this.provinsi = dataBarang.provinsi;
-      this.kota = dataBarang.kota;
-      this.kecamatan = dataBarang.kecamatan;
-      this.address = dataBarang.address;
-      this.description = dataBarang.description;
-      this.image1 = dataBarang.image1;
-      this.image2 = dataBarang.image2;
-      this.image3 = dataBarang.image3;
+    //   console.log(this.navParams.data);
 
-      //mendapatkan nama_lembaga dari id_lembaga
-    this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
-      this.nama_lembaga = lembaga.name;
-    });
+    //   this.name = dataBarang.nama;
+    //   this.address = dataBarang.address;
+    //   this.bank = dataBarang.bank;
+    //   this.norek = dataBarang.norek;
+    //   this.telephone = dataBarang.telephone;
+    //   this.image = dataBarang.image;
+
+    //   //mendapatkan nama_lembaga dari id_lembaga
+    // this.firedata.object('/lembaga/'+this.lembaga_barang).subscribe(lembaga => {
+    //   this.nama_lembaga = lembaga.name;
+    // });
   }
 
   ionViewWillEnter() {

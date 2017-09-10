@@ -48,27 +48,27 @@ export class DonaturHome2Page {
       subTitle: 'Rp.' + this.price,
       cssClass: 'action-sheets-basic-page',
       buttons: [
-        {
-          text: 'Share',
-          icon: !this.platform.is('ios') ? 'share' : null,
-          handler: () => {
-            console.log('Share clicked');
-          }
-        },
-        {
-          text: 'Play',
-          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
-          handler: () => {
-            console.log('Play clicked');
-          }
-        },
-        {
-          text: 'Favorite',
-          icon: !this.platform.is('ios') ? 'heart-outline' : null,
-          handler: () => {
-            console.log('Favorite clicked');
-          }
-        },
+        // {
+        //   text: 'Share',
+        //   icon: !this.platform.is('ios') ? 'share' : null,
+        //   handler: () => {
+        //     console.log('Share clicked');
+        //   }
+        // },
+        // {
+        //   text: 'Play',
+        //   icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
+        //   handler: () => {
+        //     console.log('Play clicked');
+        //   }
+        // },
+        // {
+        //   text: 'Favorite',
+        //   icon: !this.platform.is('ios') ? 'heart-outline' : null,
+        //   handler: () => {
+        //     console.log('Favorite clicked');
+        //   }
+        // },
         {
           text: 'Cancel',
           role: 'cancel', // will always sort to be on the bottom
