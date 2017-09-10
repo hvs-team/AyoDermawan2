@@ -11,17 +11,17 @@
 
   <ion-slides pager>
 
-  <ion-slide>
-    <img class="Gambar" src="assets/pict/mock5.jpg"/>
-  </ion-slide>
-
-  <ion-slide>
-    <img src="assets/pict/BarangBiru.png"/>
-  </ion-slide>
-
-  <ion-slide>
-    <img src="assets/pict/BarangBiru.png"/>
-  </ion-slide>
+    <ion-slide>
+      <img src="assets/pict/BarangBiru.png" *ngIf="!data.image1" class="Gambar"/>
+      <img [src]="data.image1" *ngIf="data.image1" class="Gambar"/>  </ion-slide>
+  
+    <ion-slide>
+      <img src="assets/pict/BarangBiru.png" *ngIf="!data.image2" class="Gambar"/>
+      <img [src]="data.image2" *ngIf="data.image2" class="Gambar"/>  </ion-slide>
+  
+    <ion-slide>
+      <img src="assets/pict/BarangBiru.png" *ngIf="!data.image3" class="Gambar"/>
+      <img [src]="data.image3" *ngIf="data.image3" class="Gambar"/>  </ion-slide>
 
 </ion-slides>
 
@@ -30,7 +30,7 @@
       <img src="assets/pict/DonaturIconSmall.png"/>
     </ion-thumbnail>
     <p class="Head">Nama Donatur</p>
-    <p class="Konten">Donatur X</p>
+    <p class="Konten">{{barang.nama_donatur}}</p>
   </ion-item>
 
   <ion-item text-wrap>
@@ -38,7 +38,7 @@
       <img src="assets/pict/TeleponBiru.png"/>
     </ion-thumbnail>
     <p class="Head">Nomor Telepon</p>
-    <p class="Konten">021 742339</p>
+    <p class="Konten">{{barang.telephone}}</p>
   </ion-item>
 
   <ion-item text-wrap>
@@ -46,7 +46,7 @@
       <img src="assets/pict/BarangBiru.png"/>
     </ion-thumbnail>
     <p class="Head">Nama Barang</p>
-    <p class="Konten">Nama Barang X</p>
+    <p class="Konten">{{barang.nama}}</p>
   </ion-item>
 
   <ion-item text-wrap>
@@ -54,7 +54,7 @@
       <img src="assets/pict/ListBiru.png"/>
     </ion-thumbnail>
     <p class="Head">Kategori</p>
-    <p class="Konten">Kateogiri Barang X</p>
+    <p class="Konten">{{barang.kategori}}</p>
   </ion-item>
 
   <ion-item text-wrap>
@@ -62,7 +62,7 @@
       <img src="assets/pict/PetaBiru.png"/>
     </ion-thumbnail>
     <p class="Head">Alamat Pengambilan</p>
-    <p class="Konten">Jalan X, Kecamatan X, Kabupaten X, Provinsi X</p>
+    <p class="Konten">{{barang.address}}</p>
   </ion-item>
 
   
