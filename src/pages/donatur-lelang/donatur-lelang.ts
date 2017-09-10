@@ -54,6 +54,8 @@ export class DonaturLelangPage {
 
   donatur: FirebaseObjectObservable<any[]>;
 
+  lembaga:any;
+
   constructor(
     private fireauth: AngularFireAuth,
     private firedata: AngularFireDatabase,
@@ -68,6 +70,11 @@ export class DonaturLelangPage {
     public modalCtrl: ModalController,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera) {
+
+      this.firedata.list('lembaga').subscribe(data => {
+        console.log(data);        
+        this.lembaga=data;//ngambil data yang dikasih firebase
+      });
   }
 
   ionViewDidLoad() {

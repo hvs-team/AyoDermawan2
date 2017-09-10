@@ -19,7 +19,7 @@ import { TabsLembagaPage } from '../tabs-lembaga/tabs-lembaga';
 })
 export class LembagaSignupPage {
 
-  image: string;
+  imageSurat: string;
   id_lembaga:string;
 
   submitted= false;
@@ -109,7 +109,7 @@ export class LembagaSignupPage {
 
         //upload Pict
         const picture = storage().ref('picture/profileLembaga/'+ this.id_lembaga);
-        picture.putString(this.image, 'data_url');
+        picture.putString(this.imageSurat, 'data_url');
 
         lembaga.subscribe(datanya => {
           console.log(datanya);  
@@ -177,7 +177,7 @@ export class LembagaSignupPage {
 
       const result =  await this.camera.getPicture(options);
 
-      this.image = 'data:image/jpeg;base64,' + result;
+      this.imageSurat = 'data:image/jpeg;base64,' + result;
 
       this.validPhoto=true;
 
@@ -198,7 +198,7 @@ export class LembagaSignupPage {
     }).then((imageData) => {
       // this.base64Image = imageData;
       // this.uploadFoto();
-      this.image = 'data:image/jpeg;base64,' + imageData;
+      this.imageSurat = 'data:image/jpeg;base64,' + imageData;
       this.validPhoto=true;
       }, (err) => {
     });
