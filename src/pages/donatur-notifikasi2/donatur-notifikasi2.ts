@@ -12,7 +12,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
-
 // @IonicPage()
 @Component({
   selector: 'page-donatur-notifikasi2',
