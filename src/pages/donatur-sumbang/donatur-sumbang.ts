@@ -46,7 +46,9 @@ export class DonaturSumbangPage {
   id_donatur: string;
   nama_lembaga: string
   lembaga: any;
-  
+  nama_donatur: string;
+  telephone: string;
+
   //uang
   donation: number;  
   lembaga_uang: string;
@@ -82,6 +84,8 @@ export class DonaturSumbangPage {
       });
 
       this.data.getDataDonatur().then((data) => {
+      this.nama_donatur = data.name;
+      this.telephone = data.telephone;
       this.id_donatur = data.id;
     })
 
@@ -153,6 +157,8 @@ export class DonaturSumbangPage {
       });
       console.log(this.nama_lembaga);
       this.firedata.list('/uang/').push({ 
+        nama_donatur: this.nama_donatur,
+        telephone: this.telephone,
         id_donatur: this.id_donatur,
         donation: this.donation, 
         lembaga_uang: this.lembaga_uang,
@@ -219,6 +225,8 @@ export class DonaturSumbangPage {
     if(form.valid && this.validKategori && this.validLembagaBarang && this.validProvinsi && this.validKota && this.validKecamatan){
 
       let input = JSON.stringify({
+        telephone:this.telephone,
+        nama_donatur: this.nama_donatur,
         name:this.name,
         kategori:this.kategori,
         lembaga_barang:this.lembaga_barang,

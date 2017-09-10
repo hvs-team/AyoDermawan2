@@ -33,6 +33,14 @@ export class LembagaNotifikasiPage {
     public app: App) {
   }
 
+  ionViewWillEnter() {
+    this.data.getDataLembaga().then((data) => {
+      this.id_lembaga = data.id;
+      this.notifikasi="pemberitahuan";
+      this.pemberitahuan();
+    })
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LembagaNotifikasiPage');
   }
@@ -62,9 +70,11 @@ export class LembagaNotifikasiPage {
     this.swipe++
     if(this.swipe%2 == 0){
       this.notifikasi = "riwayat";
+      this.riwayat();
     }
     else {
       this.notifikasi = "pemberitahuan";
+      this.pemberitahuan();
     }
   }
 
@@ -80,7 +90,7 @@ export class LembagaNotifikasiPage {
           j++;
         }
       }
-      console.log(this.list);      
+      //console.log(this.list);      
     })
 
     //barang
@@ -91,7 +101,7 @@ export class LembagaNotifikasiPage {
           j++;
         }
       }
-      console.log(this.list);      
+//console.log(this.list);      
     })
 
     //uang
@@ -102,7 +112,7 @@ export class LembagaNotifikasiPage {
           j++;
         }
       }
-      console.log(this.list);      
+      //console.log(this.list);      
     })
     console.log(this.list);
   }
@@ -119,7 +129,7 @@ export class LembagaNotifikasiPage {
           j++;
         }
       }
-      console.log(this.list);      
+      //console.log(this.list);      
     })
 
     //barang
@@ -130,7 +140,7 @@ export class LembagaNotifikasiPage {
           j++;
         }
       }
-      console.log(this.list);      
+      //console.log(this.list);      
     })
 
     //uang
@@ -141,18 +151,18 @@ export class LembagaNotifikasiPage {
           j++;
         }
       }
-      console.log(this.list);      
+     // console.log(this.list);      
     })
     console.log(this.list);
     
   }
 
-  masuk() {
-    this.app.getRootNav().push(LembagaDonasiPage);
+  masuk(data) {
+    this.app.getRootNav().push(LembagaDonasiPage, data);
   }
 
-  masuk2() {
-    this.app.getRootNav().push(LembagaRiwayatPage);
+  masuk2(data) {
+    this.app.getRootNav().push(LembagaRiwayatPage, data);
   }
 
 }
