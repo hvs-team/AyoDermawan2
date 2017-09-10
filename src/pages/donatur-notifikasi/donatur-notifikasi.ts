@@ -29,10 +29,16 @@ export class DonaturNotifikasiPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
   ) {
+    }
+
+
+  ionViewWillEnter() {
     this.data.getDataDonatur().then((data) => {
       this.id_donatur = data.id;
+      this.notifikasi="pemberitahuan";
+      this.pemberitahuan();
     })
-    this.fireauth.auth.currentUser;
+    
   }
 
   ionViewDidLoad() {
@@ -64,9 +70,11 @@ export class DonaturNotifikasiPage {
     this.swipe++
     if(this.swipe%2 == 0){
       this.notifikasi = "tertunda";
+      this.tertunda();
     }
     else {
       this.notifikasi = "pemberitahuan";
+      this.pemberitahuan();
     }
   }
 
@@ -110,8 +118,9 @@ export class DonaturNotifikasiPage {
   }
 
   pemberitahuan(){
+    this.list=[];    
     console.log("pemberitahuan");    
-    
+    console.log(this.id_donatur);
     //lelang
     this.firedata.list('/lelang/').subscribe(data => {
       for (var i=0, j=0; i < data.length; i++) {

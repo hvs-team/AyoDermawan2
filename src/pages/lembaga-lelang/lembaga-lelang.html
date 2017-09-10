@@ -16,8 +16,8 @@
 <ion-content>
   <ion-item *ngFor="let data of list" text-wrap>
     <ion-thumbnail item-left >
-      <img src="assets/pict/BarangBiru.png" *ngIf="!data.image" class="Gambar"/>
-      <img [src]="data.image" *ngIf="image" class="Gambar"/>
+      <img src="assets/pict/BarangBiru.png" *ngIf="!data.image1" class="Gambar"/>
+      <img [src]="data.image1" *ngIf="data.image1" class="Gambar"/>
     </ion-thumbnail>
     <ion-row>
       <ion-col col-9>
