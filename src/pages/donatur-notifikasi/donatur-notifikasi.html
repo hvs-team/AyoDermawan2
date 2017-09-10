@@ -18,17 +18,18 @@
   <div [ngSwitch]="notifikasi">
     <ion-list *ngSwitchCase="'tertunda'">
     
-      <ion-item text-wrap>
+      <ion-item *ngFor="let data of list" text-wrap>
         <ion-thumbnail item-left>
-          <img src="assets/pict/mock4.jpg"/>
+          <img src="assets/pict/BarangBiru.png" *ngIf="!data.image1" class="Gambar"/>
+          <img [src]="data.image1" *ngIf="data.image1" class="Gambar"/>
         </ion-thumbnail>
         <ion-row>
           <ion-col col-9>
-            <p class="Head">Pahatan X</p>
-            <p class="Konten">Unggah Bukti Bayar</p>
+            <p class="Head">{{data.nama}}</p>
+            <p class="Konten">{{data.keterangan}}</p>
           </ion-col>
           <ion-col col-3>
-            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
+            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk(data)" block><p class="ButtonWord">Lihat</p></button>
           </ion-col>
         </ion-row>
       </ion-item>      
@@ -41,17 +42,17 @@
 
     <ion-list *ngSwitchCase="'pemberitahuan'">
       
-      <ion-item text-wrap>
+      <ion-item *ngFor="let data of list" text-wrap>
         <ion-thumbnail item-left>
-          <img src="assets/pict/mock1.jpg"/>
-        </ion-thumbnail>
+          <img src="assets/pict/BarangBiru.png" *ngIf="!data.image1" class="Gambar"/>
+          <img [src]="data.image1" *ngIf="data.image1" class="Gambar"/>        </ion-thumbnail>
         <ion-row>
           <ion-col col-9>
-            <p class="Head">Patung X</p>
-            <p class="Konten">Sudah terjual</p>
+            <p class="Head">{{data.nama}}</p>
+            <p class="Konten">{{data.keterangan}}</p>
           </ion-col>
           <ion-col col-3>
-            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk()" block><p class="ButtonWord">Lihat</p></button>
+            <button class="Button" ion-button small color="AyoDermawan" (click)="masuk(data)" block><p class="ButtonWord">Lihat</p></button>
           </ion-col>
         </ion-row>
       </ion-item>

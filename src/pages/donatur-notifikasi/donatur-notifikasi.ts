@@ -154,4 +154,8 @@ export class DonaturNotifikasiPage {
   
   }
 
+  masuk(data){
+    
+  }
+
 }

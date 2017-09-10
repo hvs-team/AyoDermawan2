@@ -45,8 +45,7 @@ export class LembagaLelangPage {
           })  
           console.log(this.list);
       })
-
-                
+ 
     }
 
   ionViewDidLoad() {
