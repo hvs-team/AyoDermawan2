@@ -62,6 +62,8 @@ export class DonaturSumbangPage {
   kecamatan: string;
   address: string;
   description: string;
+  bank:string;
+  norek:string;
   
   constructor(
     private fireauth: AngularFireAuth,
@@ -154,6 +156,8 @@ export class DonaturSumbangPage {
       //mendapatkan nama_lembaga dari id_lembaga
       this.firedata.object('/lembaga/'+this.lembaga_uang).subscribe(lembaga => {
         this.nama_lembaga = lembaga.name;
+        this.bank = lembaga.bank;
+        this.norek = lembaga.norek;
       });
       console.log(this.nama_lembaga);
       this.firedata.list('/uang/').push({ 
@@ -173,6 +177,8 @@ export class DonaturSumbangPage {
           donation:this.donation,
           lembaga_uang:this.lembaga_uang,
           nama_lembaga:this.nama_lembaga,
+          norek:this.norek,
+          bank:this.bank,
           id_uang: data.path.pieces_[1]
           });
           this.app.getRootNav().push(DonaturUangPage, input);

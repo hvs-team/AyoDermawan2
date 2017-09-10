@@ -29,16 +29,16 @@
     <ion-thumbnail item-left>
       <img src="assets/pict/MandiriBank.png"/>
     </ion-thumbnail>
-    <p class="Head">Nama Rekening Lembaga X</p>
-    <p class="Konten">144 182598 123</p>
+    <p class="Head">{{bank}}</p>
+    <p class="Konten">{{norek}}</p>
   </ion-item>
-  <ion-item class="Bank" margin-left text-wrap>
+  <!--<ion-item class="Bank" margin-left text-wrap>
     <ion-thumbnail item-left>
       <img src="assets/pict/MandiriBank.png"/>
     </ion-thumbnail>
-    <p class="Head">Nama Rekening Lembaga X</p>
-    <p class="Konten">144 182598 123</p>
-  </ion-item>
+    <p class="Head">{{bank}}</p>
+    <p class="Konten">{{norek}}</p>
+  </ion-item>-->
 
   <div>
       <button [hidden]="image1" class='Button' color="AyoDermawan" ion-button outline block (click)='updatePicture1()'><p class="ButtonWordBlue">Unggah Foto</p></button>

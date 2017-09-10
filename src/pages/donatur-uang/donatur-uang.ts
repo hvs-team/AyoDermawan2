@@ -31,6 +31,8 @@ export class DonaturUangPage {
   id_donatur: string;
   id_uang: string;
   nama_lembaga: string;
+  bank:string;
+  norek:string;
 
   constructor(
     private fireauth: AngularFireAuth, 
@@ -55,6 +57,8 @@ export class DonaturUangPage {
     this.donation = dataDonasi.donation;
     this.lembaga_uang = dataDonasi.lembaga_uang;
     this.id_uang = dataDonasi.id_uang;
+    this.bank = dataDonasi.bank;
+    this.norek = dataDonasi.norek;
 
     //mendapatkan nama_lembaga dari id_lembaga
     this.firedata.object('/lembaga/'+this.lembaga_uang).subscribe(lembaga => {
