@@ -30,6 +30,8 @@ export class DonaturBarangPage {
   kecamatan: string;
   address: string;
   description: string;
+  telephone: string;
+  nama_donatur: string;
   
   id_donatur: string;
   nama_lembaga:string;
@@ -48,7 +50,8 @@ export class DonaturBarangPage {
       
       let dataBarang = JSON.parse(this.navParams.data);
 
-
+      this.nama_donatur = dataBarang.nama_donatur;
+      this.telephone = dataBarang.telephone;
       this.name = dataBarang.name;
       this.kategori = dataBarang.kategori;
       this.lembaga_barang = dataBarang.lembaga_barang;
@@ -71,6 +74,7 @@ export class DonaturBarangPage {
     //ini ni ngambil value yang di return dari data.ts
     this.data.getDataDonatur().then((data) => {
       this.id_donatur = data.id;
+
     })
   }
 
@@ -102,6 +106,8 @@ export class DonaturBarangPage {
     });
     
     this.firedata.list('/barang/').push({ 
+      telephone: this.telephone,
+      nama_donatur: this.nama_donatur,
       id_donatur: this.id_donatur,
       nama: this.name,
       kategori: this.kategori,

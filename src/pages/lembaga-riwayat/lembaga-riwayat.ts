@@ -20,6 +20,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class LembagaRiwayatPage {
 
+  barang: any;
+
   constructor(
     private fireauth: AngularFireAuth,
     private firedata: AngularFireDatabase,
@@ -28,7 +30,7 @@ export class LembagaRiwayatPage {
     public navCtrl: NavController, 
     public navParams: NavParams) 
     {
-      
+      this.barang = this.navParams.data;
     }
 
   ionViewDidLoad() {
