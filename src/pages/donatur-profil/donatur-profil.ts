@@ -23,6 +23,7 @@ export class DonaturProfilPage {
 
   tabs: number;
   image: string;
+  photos: string;
 
   id_donatur:string;
   name_donatur: string;
@@ -47,17 +48,16 @@ export class DonaturProfilPage {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public app: App) {
-
-      this.ambilGambar();
-
+      
         this.data.getDataDonatur().then((data) => {
         this.name_donatur = data.name;
         this.id_donatur = data.id;
         this.email_donatur = data.email;
         this.telephone_donatur = data.telephone;
         this.address_donatur = data.address;
+        this.ambilGambar();        
       })
-
+      
     }
 
   ionViewDidLoad() {
@@ -166,12 +166,12 @@ export class DonaturProfilPage {
 
       this.image = 'data:image/jpeg;base64,' + result;
 
+      console.log(this.id_donatur);
       const picture = storage().ref('picture/profileDonatur/'+ this.id_donatur);
       picture.putString(this.image, 'data_url');
       this.firedata.object('/donatur/'+ this.id_donatur).update({
         image: 'picture/profileDonatur/'+ this.id_donatur + '.jpeg'
       })
-
 
 
     }
@@ -203,14 +203,9 @@ export class DonaturProfilPage {
   }
 
   ambilGambar() {
-    console.log("gambarnya mnaya?");
-    this.firedata.object('/donatur/'+this.id_donatur).subscribe(data =>{
-      this.image=data.image;
-      console.log(this.image);
-    });
-
-    
-
+    storage().ref().child('picture/profileDonatur/'+ this.id_donatur).getDownloadURL().then(url =>{
+      this.image=url;
+    })
   }
 
   
