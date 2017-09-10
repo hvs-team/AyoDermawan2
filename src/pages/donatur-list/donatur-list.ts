@@ -31,9 +31,9 @@ export class DonaturListPage {
     console.log('ionViewDidLoad DonaturListPage');
   }
 
-  OpenItem() {
+  OpenItem(data) {
     // untuk push page dengan tabs dihide
-    this.app.getRootNav().push(DonaturList2Page);
+    this.app.getRootNav().push(DonaturList2Page, data);
   }
 
 }

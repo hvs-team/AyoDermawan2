@@ -8,36 +8,38 @@
 
 
 <ion-content>
-  <img src="assets/pict/LembagaLogo.png" class="Pict"/>
+  <!--<img src="assets/pict/LembagaLogo.png" class="Pict"/>-->
+  <img src="assets/pict/LembagaLogo.png" *ngIf="!image" class="Pict"/>
+  <img [src]="image" *ngIf="image" class="Pict"/>
   
   <ion-item padding-right text-wrap>
-    <p class="Nama">Nama Lembaga Sosial panjang panjang
+    <p class="Nama">{{name_lembaga}}
     </p>
   </ion-item>
 
   <ion-item padding-right>
 	  <ion-icon name="mail" item-left class="IconMail"></ion-icon>
 	  <p class="Head">Email</p>
-	  <p class="Konten">lembaga@gmail.com</p>
+	  <p class="Konten">{{email_lembaga}}</p>
 	</ion-item>
   <ion-item padding-right>
 	  <ion-icon name="call" item-left class="Icon"></ion-icon>
 	  <p class="Head">Nomor Telepon</p>
-	  <p class="Konten">0896 5701 1491</p>
+	  <p class="Konten">{{telephone_lembaga}}</p>
 	</ion-item>
   <ion-item padding-right>
 	  <ion-icon name="md-map" item-left class="Icon"></ion-icon>
 	  <p class="Head">Alamat</p>
-	  <p class="Konten">Ipb Dramaga Bogor</p>
+	  <p class="Konten">{{address_lembaga}}</p>
 	</ion-item>
 
   <!--KONDISI SATU-->
   <div>
   <ion-item padding-right no-lines>
 	  <ion-icon name="ios-card" item-left class="Icon"></ion-icon>
-	  <p class="Head">Mandiri
+	  <p class="Head">{{bank_lembaga}}
     </p>
-	  <p class="Konten">1234564256262</p>
+	  <p class="Konten">{{norek_lembaga}}</p>
 	</ion-item>
   </div>
 
