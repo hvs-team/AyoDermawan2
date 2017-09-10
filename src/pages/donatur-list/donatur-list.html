@@ -24,7 +24,7 @@
   <ion-item *ngFor="let data of lembaga" text-wrap>
     <ion-thumbnail item-left>
       <img src="assets/pict/LembagaLogo.png" *ngIf="!data.image" class="Pict"/>
-      <img [src]="data.image" *ngIf="image" class="Pict"/>
+      <img [src]="data.image" *ngIf="data.image" class="Pict"/>
     </ion-thumbnail>
     <ion-row>
       <ion-col col-9>

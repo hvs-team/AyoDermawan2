@@ -27,19 +27,7 @@
   <ion-fab bottom right >
     <button color="AyoDermawan" ion-fab mini (click)="tambahLelang()"><ion-icon  name="md-add"></ion-icon></button>
   </ion-fab>
-
-  <ion-item *ngFor="let data of lelang">
-    <ion-card>
-          <img src="assets/pict/BarangBiru.png" *ngIf="!data.image" class="Item"/>
-          <img [src]="data.image1" *ngIf="image" class="Item"/>
-          <ion-card-content>
-            <p class="JudulItem">{{data.nama}}</p>
-            <p class="HargaItem">
-              Rp. {{data.price}}
-            </p>
-          </ion-card-content>
-        </ion-card>  
-  </ion-item>
+  
 
   <ion-grid>
 
@@ -47,7 +35,8 @@
     <ion-row >
       <ion-col col-6 (tap)="OpenItem(data)" *ngFor="let data of lelang">
         <ion-card>
-          <img src="assets/pict/BarangBiru.png"  class="Item"/>
+          <img src="assets/pict/BarangBiru.png" *ngIf="!data.image" class="Item"/>
+          <img [src]="data.image1" *ngIf="image" class="Item"/>
           <ion-card-content>
             <p class="JudulItem">{{data.nama}}</p>
             <p class="HargaItem">
